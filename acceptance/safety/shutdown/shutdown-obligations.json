@@ -1,0 +1,2060 @@
+{
+  "schema_version": 1,
+  "slice_id": "FSAE2027:shutdown-v1",
+  "source_document_id": "FSAE-2027-V1",
+  "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+  "scope": "EV.8 excluding BSPD internals EV.8.7",
+  "prose_review_pages": [
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "source_record_count": 135,
+  "interpreted_prose_record_count": 122,
+  "obligations": [
+    {
+      "key": "SERIES",
+      "identifier": "FSAE2027:SD:obligation:SERIES",
+      "obligation": "Connect the BMS, IMD, BSPD interface, required interlocks, GLVMS, TSMS, three emergency buttons, BOTS and inertia switch in one series shutdown-current path.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p001",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8ec6f0190e171636bb876b7bba0a828a086c07d5089e31049a37a6049c1e518f",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p002",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "c345f67fa86a4db52f984a79601110e5f7571b5693f572517a2fafd0dcc38a2f",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p003",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "ad92c9eae3c85ab7f3473e8941f8fe66fa4ba119ecf76c8a43ee6d89fab8b7c8",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p004",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "226c3b9ae429ab7181cc7f554a7a9a51f81d8368ddd15fb4689282aa956e5ac6",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p005",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "39b42f8e682f844f3cf91a5d31fc304bd2a0d4d30a7ae9a2d7e84c437527a559",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p006",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "9c0c8bd27eecc9f03c7e36d3906b4568ae5fa941bd1ae4f3873789e531ba03a0",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p007",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "d731300936ab972d990024929fb3d6650f32115fdef13f4b4a02dfe44035a4c3",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p008",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "83ecafa75437fbff270ca4522382cd18d9b71779964e09ff77b2666798cadf90",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.1:p009",
+          "source_rule_id": "EV.8.1.1",
+          "source_pages": [
+            105
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "e13e8fb88932b1b9538091d2e233baae2e54b19073b399d9558c1002ab3f8fd0",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "series",
+        "accept"
+      ],
+      "verification_obligation": "Inspect the complete physical series chain and open each channel independently; record loss of isolation/precharge coil current.",
+      "unresolved_decisions": [],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "COIL-CURRENT",
+      "identifier": "FSAE2027:SD:obligation:COIL-CURRENT",
+      "obligation": "Carry isolation and precharge relay drive current directly through the high-side shutdown path; emergency buttons, BOTS, master switches and interlocks carry that current themselves.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.2:p001",
+          "source_rule_id": "EV.8.1.2",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "d5685e1ce1230e4bbf93be2a3714534f7bde787b759a9f6f4f2eb1fb4b72fa40",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.3:p001",
+          "source_rule_id": "EV.8.1.3",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "719ade30cb97ee357230cd7f47a98582bbd236bee0cb7eb6ac8d41398558035f",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.6:p001",
+          "source_rule_id": "EV.8.1.6",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "91effc10c88655c685a3e002c950a8b0f36c29c9bb5dd77b36486ba7dba13337",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "series",
+        "cutout",
+        "coils"
+      ],
+      "verification_obligation": "Measure coil drive paths and show there is no low-side substitution, supervisory-only contact or bypass feed.",
+      "unresolved_decisions": [
+        "Coil current and contact ratings TBD; select hardware after worst-case drive-current analysis."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "NORMALLY-OPEN",
+      "identifier": "FSAE2027:SD:obligation:NORMALLY-OPEN",
+      "obligation": "Use normally-open BMS, IMD and BSPD shutdown outputs so loss of their sustaining drive opens the path.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.4:p001",
+          "source_rule_id": "EV.8.1.4",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "239cfa6d8a9b34bb159079cb54c5a2a32c8fd7c19319c20f3735149cdf1ac17c",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "series",
+        "bms",
+        "imd",
+        "accept"
+      ],
+      "verification_obligation": "Remove power and sustaining drive separately from each protective output; observe the open current path.",
+      "unresolved_decisions": [
+        "Relay/contact output topology and parts TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "INDEPENDENCE",
+      "identifier": "FSAE2027:SD:obligation:INDEPENDENCE",
+      "obligation": "BMS, IMD and BSPD interrupt the shutdown path independently; a fault cannot backfeed power into the path.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.5:p001",
+          "source_rule_id": "EV.8.1.5",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "231cf592c3335f165ef0f8fe27d5b2a1006ead7a7b8ce30a9c8cc6bcaad147a5",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.5:p002",
+          "source_rule_id": "EV.8.1.5",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "6b802749bea68b3c78c79734bcdbfddb4d696584caa5c4bc3357a227aa203793",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "series",
+        "bms",
+        "imd",
+        "cutout"
+      ],
+      "verification_obligation": "Inject channel, supply and wiring faults; show independent opening and absence of backfeed.",
+      "unresolved_decisions": [
+        "Independent hardware schematic and common-cause/backfeed analysis TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "INSPECTION",
+      "identifier": "FSAE2027:SD:obligation:INSPECTION",
+      "obligation": "Provide a technical-inspection demonstration of every shutdown component, feature and effect.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.1.7:p001",
+          "source_rule_id": "EV.8.1.7",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "b50ac91e6a5cdc249c2b8dd65f89346673bd6136df13c46189c89da8aba31e7b",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "demonstrate",
+        "series"
+      ],
+      "verification_obligation": "Execute and record a complete vehicle-level demonstration checklist without claiming an unperformed test passed.",
+      "unresolved_decisions": [
+        "Technical-inspection procedure, fixtures and evidence TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "TRIP-CAUSES",
+      "identifier": "FSAE2027:SD:obligation:TRIP-CAUSES",
+      "obligation": "Open the shutdown circuit upon operation or detection by any required shutdown component and upon any GLV-system shutdown.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.1:p001",
+          "source_rule_id": "EV.8.2.1",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "82d53a1b75a9d0ec17bd0f0ec3f5c1170ec42e575f274d684f5f6e0f4a88546d",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.1:p002",
+          "source_rule_id": "EV.8.2.1",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "554889c5ebe154c5d6f23cacd0b85e9f7c533a69859ff27f0cc34fe28354396d",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.1:p003",
+          "source_rule_id": "EV.8.2.1",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "970fdcd52a63455845c1fff1876799f5c617906401d04a129663a5f4adc3e75c",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "glv-supply",
+        "accept",
+        "cutout",
+        "glv",
+        "switches",
+        "interlocks"
+      ],
+      "verification_obligation": "Inject each independent trip source and GLV loss; prove interruption without relying on software arbitration.",
+      "unresolved_decisions": [],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "SHUTDOWN-EFFECTS",
+      "identifier": "FSAE2027:SD:obligation:SHUTDOWN-EFFECTS",
+      "obligation": "An open shutdown circuit stops tractive battery current immediately, disables the tractive system, removes motor torque so motors spin freely, and reduces TS voltage to the T.9.1.2 low-voltage class within five seconds.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.2:p001",
+          "source_rule_id": "EV.8.2.2",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "833bb3a15abd3275868f18fe30183a77db45353bcd1430072cae4b9f26903e30",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.2:p002",
+          "source_rule_id": "EV.8.2.2",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "a2a6a0067cbe85d1d05c4f5e42b2ca58f2993bed37212cc9b7fe71c71afe3f6e",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.2:p003",
+          "source_rule_id": "EV.8.2.2",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8380f8170175c881bbe2177d68d5e11a554b596cd6634c76fc05715ec9f1089f",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.2:p004",
+          "source_rule_id": "EV.8.2.2",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "9342ba49b1a5b61fc38f6519dfee083c150e3a493403c116769773bf4a252c03",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.2:p005",
+          "source_rule_id": "EV.8.2.2",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8c71f3dac8d6d809ab1ab202407dbf19ce1992b67799abfcddc6cb0d7c476c17",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "cutout",
+        "coils",
+        "current",
+        "discharge",
+        "torque"
+      ],
+      "verification_obligation": "Measure battery current, motor torque/free-spin and residual voltage after every trip; prove low voltage within 5 s using the applicable T.9.1.2 definition.",
+      "unresolved_decisions": [
+        "Discharge circuit, energy, isolation-relay arrangement and verified timing margins TBD; T.9.1.2 and EV.5.4.3 dependencies need review."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "MANUAL-LATCH",
+      "identifier": "FSAE2027:SD:obligation:MANUAL-LATCH",
+      "obligation": "Latch BMS, IMD or BSPD trips disabled until a person directly at the vehicle manually resets them. The driver cannot reactivate TS; emergency-button or TSMS operation cannot bypass the latch.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.3:p001",
+          "source_rule_id": "EV.8.2.3",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "3aed423e09fe581ebc7eee983d95578328e643131f37ee8b4e093ce553458d30",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.3:p002",
+          "source_rule_id": "EV.8.2.3",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "5762548508f327e057c19d2d607a7fb1ce1bb5f6fce943567ab992cf1eeec958",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.3:p003",
+          "source_rule_id": "EV.8.2.3",
+          "source_pages": [
+            106
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "f0adb4800d5697f0959b5aa8705ad774c92d0e76425457506cc9a0599c321193",
+          "source_review_status": "visually_checked_manual_reset_prose_only_rotated_figure_text_ignored"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.3:p016",
+          "source_rule_id": "EV.8.2.3",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "678ae5937b03e3931bf8bdc6f58014e34117865a717751d0698a75a8ed10790a",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.2.3:p017",
+          "source_rule_id": "EV.8.2.3",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "397a2dc62761067ba65a1d7c35c1f6b5939f1e315a4c2c69d08d1729ad239763",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "latch",
+        "reset",
+        "cutout"
+      ],
+      "verification_obligation": "Trip each protective device; try driver controls, TSMS, button toggles, remote reset and GLV power cycling. Only a permitted local manual reset after clearing faults releases the latch.",
+      "unresolved_decisions": [
+        "Reset location and independent fail-safe latch hardware TBD; resetting does not itself authorize TS activation."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BMS-MONITORING",
+      "identifier": "FSAE2027:SD:obligation:BMS-MONITORING",
+      "obligation": "Monitor battery voltage and temperature whenever TS is active or the tractive battery is connected to a charger.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.1:p001",
+          "source_rule_id": "EV.8.3.1",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "4144fc5a02741caa1dc003e411d81c6d435f3cf7c0657bc633be67109d790097",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.1:p002",
+          "source_rule_id": "EV.8.3.1",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "dd85f794331fc002be2ca6e60abf517eb10a0a385ab9e15bdb7278607d7f11ab",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.1:p003",
+          "source_rule_id": "EV.8.3.1",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "2252bec51a809c42e5d2eef01fda54e51a6a1a25af8b3746968927a6e62f57d0",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "voltage",
+        "temperature",
+        "bms"
+      ],
+      "verification_obligation": "Test both active-TS and charger-connected modes, including TS-open charging; inject missing samples in each mode.",
+      "unresolved_decisions": [
+        "Charging integration EV.9.3 and active-state definition EV.12.5 remain dependencies."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "MODULE-ISOLATION",
+      "identifier": "FSAE2027:SD:obligation:MODULE-ISOLATION",
+      "obligation": "Provide galvanic isolation at every BMS module-to-module boundary and substantiate it in the ESF.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.2:p001",
+          "source_rule_id": "EV.8.3.2",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "403eeca4f692df1cbdc211529454516d7428fccc5fab71721460317a79d6b7ae",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "bms",
+        "voltage",
+        "temperature"
+      ],
+      "verification_obligation": "Inspect the module-boundary isolation plan and perform appropriate isolation tests using the approved ESF design.",
+      "unresolved_decisions": [
+        "Battery module configuration, isolation barriers/ratings and approved ESF TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BALANCE-INHIBIT",
+      "identifier": "FSAE2027:SD:obligation:BALANCE-INHIBIT",
+      "obligation": "Prevent cell balancing whenever the shutdown circuit is open, including charging.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.3:p001",
+          "source_rule_id": "EV.8.3.3",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "28ce46659cfd7e6c75b49ff848228c9e420147c77632e1d062e424704a8ca4c6",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "balance",
+        "cutout"
+      ],
+      "verification_obligation": "Open every shutdown path while requesting balancing in active/charging modes; observe balancing current cease.",
+      "unresolved_decisions": [
+        "Balancing hardware and charging interface EV.9.4 TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BMS-FAULTS",
+      "identifier": "FSAE2027:SD:obligation:BMS-FAULTS",
+      "obligation": "Detect invalid cell voltage, tripped voltage-sense protection, invalid cell temperature, absent/interrupted measurements and BMS internal faults.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.4:p001",
+          "source_rule_id": "EV.8.3.4",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "9098d81cfb6c7fd31a9ed06d256e1ed38753fbaf5104ec81c4a16797a1364747",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.4:p002",
+          "source_rule_id": "EV.8.3.4",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "7608a41e51e2be22d1dce98125481efe0b78fbe11d1ddb22a6ac56edc17420e4",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.4:p003",
+          "source_rule_id": "EV.8.3.4",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "7b919b180176358856d305a23e95294388a5321df00e5216a79aa899ea7334be",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.4:p004",
+          "source_rule_id": "EV.8.3.4",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "dbc75b8ae858b798814d479a6c7da94f055cfc2caa51116567b2b4f67d2ab284",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.4:p005",
+          "source_rule_id": "EV.8.3.4",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "6e59a345d407ae4ad41315df31a1305df7a3c370b8e9f91575572524e3b4ee90",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.4:p006",
+          "source_rule_id": "EV.8.3.4",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "1cfd1197a63121f3510a51e8f16835af553d23fb6cd880cd96c3a0600eeb3a53",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "voltage",
+        "temperature",
+        "sense-fuse",
+        "bms-health",
+        "bms"
+      ],
+      "verification_obligation": "Inject each listed fault and distinguish fault detection from a merely plausible last stored sample.",
+      "unresolved_decisions": [
+        "Selected-cell limits, measurement accuracy, sampling and diagnostic implementation TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BMS-TRIP-INDICATION",
+      "identifier": "FSAE2027:SD:obligation:BMS-TRIP-INDICATION",
+      "obligation": "Every detected BMS fault opens shutdown and latches the BMS warning and TS-status indication until manual BMS reset.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.5:p001",
+          "source_rule_id": "EV.8.3.5",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "82168f3e9504aa095204d1cad1b541b9830b9a44c0c688c7339f41b0531623cd",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.5:p002",
+          "source_rule_id": "EV.8.3.5",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "0a68182d54dbcc6988778bf115a863d17c4beef2a79b4d488a1f45998aa29efd",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.5:p003",
+          "source_rule_id": "EV.8.3.5",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "6ecb27db3041738cba8a87faaf47dbb15d81e04172656c33bc277f2fd5a5f059",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.5:p004",
+          "source_rule_id": "EV.8.3.5",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "fbbcea8f7962c1557b24b615bd1286e265ee5c6ba7f9ded3ea4231f60ff4f44b",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "bms",
+        "accept",
+        "latch",
+        "indicate"
+      ],
+      "verification_obligation": "Inject every BMS fault; verify circuit opening and both indications remain asserted until permitted reset.",
+      "unresolved_decisions": [
+        "TS status indication EV.6.1.6e implementation is a dependent slice."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BMS-LAMP",
+      "identifier": "FSAE2027:SD:obligation:BMS-LAMP",
+      "obligation": "Provide a red driver-visible BMS-marked warning in bright sunlight and perform the EV.6.3 lamp check.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.6:p001",
+          "source_rule_id": "EV.8.3.6",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "54e81fd800b5a712342cbf54536a283befdb2cb3eef6176f14292c6e191d8a08",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.6:p002",
+          "source_rule_id": "EV.8.3.6",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "f871e1a6da1f10ce9865651265aea732e1fe3760ad7c3a3d2795dc1254a171ed",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.6:p003",
+          "source_rule_id": "EV.8.3.6",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "03328a62fd70f4d85b061d721ac35891bfc7667e9214367fb9348a255bb65046",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.6:p004",
+          "source_rule_id": "EV.8.3.6",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "55a3e1cac6569d86f768874acbd277d1cd5097b64b4adae46f876aa2bd11163a",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.3.7:p001",
+          "source_rule_id": "EV.8.3.7",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "400832b62e25037fe5223308b6f1b89118e1c732e72eab080481bbba046b738f",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "indicate",
+        "lamp-check"
+      ],
+      "verification_obligation": "Inspect marking/color and seated-driver visibility in bright sunlight; execute the EV.6.3 lamp-check sequence.",
+      "unresolved_decisions": [
+        "Lamp hardware, mounting, brightness and detailed EV.6.3 sequence TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "CELL-VOLTAGE",
+      "identifier": "FSAE2027:SD:obligation:CELL-VOLTAGE",
+      "obligation": "Measure each cell voltage; directly parallel-connected cells may share one measurement.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.4.1:p001",
+          "source_rule_id": "EV.8.4.1",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "553b8a9d05f895b462587e3ef53ba48af6c6ebf5884a880748c61a1e830f722d",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.4.1:p002",
+          "source_rule_id": "EV.8.4.1",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "48c4c31da29c56b47b14ad51f7940c3c22ac1e590930f0d2ba1fed268893734c",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "voltage",
+        "bms"
+      ],
+      "verification_obligation": "Compare every electrical cell group against the sensing-channel map, including conditional direct-parallel grouping.",
+      "unresolved_decisions": [
+        "Exact cells and series/parallel configuration TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "CELL-VOLTAGE-LIMIT",
+      "identifier": "FSAE2027:SD:obligation:CELL-VOLTAGE-LIMIT",
+      "obligation": "Maintain cell voltage within the selected manufacturer's minimum/maximum limits with measurement accuracy included.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.4.2:p001",
+          "source_rule_id": "EV.8.4.2",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "be8ed7de2309ee444ef3d593628e4d01eaba0b7d8b687d84991209a0e36ac04e",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "voltage",
+        "bms"
+      ],
+      "verification_obligation": "Apply worst-case measurement error and boundary voltages against the selected-cell datasheet; demonstrate trip behavior.",
+      "unresolved_decisions": [
+        "Cell datasheet values and voltage measurement uncertainty TBD; no numerical cell limits are invented."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "SENSE-PROTECTION",
+      "identifier": "FSAE2027:SD:obligation:SENSE-PROTECTION",
+      "obligation": "Protect every BMS voltage-sense connection at the directly cell-tab-connected conductor/trace; protection voltage rating is at least maximum module voltage.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.4.3:p001",
+          "source_rule_id": "EV.8.4.3",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "28fcb7437c6269afae392dba3649f9af3a9a0572bacfbb071bdea2400d4dac75",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.4.3:p002",
+          "source_rule_id": "EV.8.4.3",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "93892a5733af9bae26eeacd2d2f2003b30e9b921f646cc31ae293498b9d772fe",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.4.3:p003",
+          "source_rule_id": "EV.8.4.3",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "45a9bec98d1599538910dc6103d174ca07fca36154b70b7fea8fb7bad8f477b6",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "sense-fuse",
+        "voltage"
+      ],
+      "verification_obligation": "Inspect cell-tab protection placement, ratings and the blown/tripped-protection fault path.",
+      "unresolved_decisions": [
+        "Module voltage, protection devices, exact tab/trace layout and fault-current ratings TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "CELL-TEMPERATURE",
+      "identifier": "FSAE2027:SD:obligation:CELL-TEMPERATURE",
+      "obligation": "Measure cell temperatures and keep them strictly below the lower of the cell-datasheet maximum and 60 degrees C, including measurement accuracy.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.1:p001",
+          "source_rule_id": "EV.8.5.1",
+          "source_pages": [
+            107
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "fce3203e3e3ad5e0f65ed08540e8b88e283c314d33fcac5074bfeb6d495c69c4",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.2:p001",
+          "source_rule_id": "EV.8.5.2",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "15ca70f84b5950cb9ce3691e936fb0a4ae7d9020a49a270fe84bab7e92d0a87b",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.2:p002",
+          "source_rule_id": "EV.8.5.2",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "5f6f6dbeab565829b4361490b682e69d6c2724c87c16559283516eb8d218436c",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.2:p003",
+          "source_rule_id": "EV.8.5.2",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "999fa45eb1850a2c18911d8356a6a78687d0b749e75f2a02bab8f7914d902121",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "temperature",
+        "bms"
+      ],
+      "verification_obligation": "Test boundary temperatures with uncertainty; confirm the manufacturer's limit controls whenever it is below 60 degrees C.",
+      "unresolved_decisions": [
+        "Cell temperature limit, sensing uncertainty and thermal placement TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "SENSOR-LOCATION",
+      "identifier": "FSAE2027:SD:obligation:SENSOR-LOCATION",
+      "obligation": "Sense at each applicable cell's negative terminal with direct contact to that terminal or its negative-terminal busbar less than 10 mm from the specified weld/clamp location.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.3:p001",
+          "source_rule_id": "EV.8.5.3",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "484b26674c1d570d675decbfd3e150d4b44a1e0324c4e6c39a285bd7d4235156",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.4:p001",
+          "source_rule_id": "EV.8.5.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "9bbb6f3cd3ca488126e81803e62636b944f5142fb80ed23287db1d3b02141011",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.4:p002",
+          "source_rule_id": "EV.8.5.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "706c6dcefdcbc5e4b9c5a09a3e9f594e05a1cae470237a16996f853061e08007",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.4:p003",
+          "source_rule_id": "EV.8.5.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "41cf28d1efbb0168cbb9213752f767dcde8493dbbf64c0d73fa5a60019e10588",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "temperature"
+      ],
+      "verification_obligation": "Inspect sensor contact and negative-terminal location; measure the strict less-than-10-mm alternative where used.",
+      "unresolved_decisions": [
+        "Physical cells, weld/clamp geometry and sensor installation TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "LITHIUM-COVERAGE",
+      "identifier": "FSAE2027:SD:obligation:LITHIUM-COVERAGE",
+      "obligation": "For lithium-based cells, monitor at least 20 percent, distributed equally across containers; measuring every cell is a recommendation retained separately.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.5:p001",
+          "source_rule_id": "EV.8.5.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "53e6a914f6b41aa871ce27d5d070c135e79dd51f2a46bd688593e909bb46b4b9",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.5:p002",
+          "source_rule_id": "EV.8.5.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "afa9d42fa10d2f57aefff59c374cc765bc680075500ce79c4a73e663a23d3e9d",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.5:p003",
+          "source_rule_id": "EV.8.5.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "444ec42752f7b4e8360e1209eb6acb7b27ecd2a08ac5032a8fc032732e96fd86",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.5:p004",
+          "source_rule_id": "EV.8.5.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "66cec3a6ab0e7e09abc03b99a0fb68ca7ac99211dceee3ec6aeb2d049844608e",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "temperature",
+        "bms"
+      ],
+      "verification_obligation": "If lithium cells are selected, inspect cell count and container distribution and verify at least 20-percent coverage; record the every-cell recommendation separately.",
+      "unresolved_decisions": [
+        "Chemistry, cell count and container configuration TBD; lithium-specific applicability remains conditional."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "SHARED-SENSOR",
+      "identifier": "FSAE2027:SD:obligation:SHARED-SENSOR",
+      "obligation": "A temperature sensor may represent multiple cells only if all EV.8.5 conditions hold for every sensed cell.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.6:p001",
+          "source_rule_id": "EV.8.5.6",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "637f3676fc8dc5b649474f8771bcb2983d4312019e267c2fdd8f889d67a671c4",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "temperature"
+      ],
+      "verification_obligation": "If sensors are shared, substantiate contact, coverage and isolation for every represented cell.",
+      "unresolved_decisions": [
+        "Shared-sensor selection and applicability TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "SENSOR-ISOLATION",
+      "identifier": "FSAE2027:SD:obligation:SENSOR-ISOLATION",
+      "obligation": "Provide suitable temperature-sensing isolation at the sensor/cell boundary or in the sensing circuit, accounting for TS/GLV isolation and sense-location common-mode voltage.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.7:p001",
+          "source_rule_id": "EV.8.5.7",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "1e01220bd85ea92fdb41a2c0bccdd54af0ffae98c482bfce8196952a73f8a4ce",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.7:p002",
+          "source_rule_id": "EV.8.5.7",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "0effa58babe5e044a15b5f7495341b7cc18862371f2b98c8bd05d212fe6857f6",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.7:p003",
+          "source_rule_id": "EV.8.5.7",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "f98047edfc86115e268e370dd01b7090ce9c3dc017aa40b4661b01b7c7357eb4",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.5.7:p004",
+          "source_rule_id": "EV.8.5.7",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "002c012048d20cdaaae3c69b5c2cd6e454e4ebd90b0d9aec6a3adf498aa8ed01",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "temperature",
+        "bms"
+      ],
+      "verification_obligation": "Test selected isolation barriers at required TS/GLV and common-mode conditions.",
+      "unresolved_decisions": [
+        "Isolation topology, ratings and common-mode envelope TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "IMD-INSTALL",
+      "identifier": "FSAE2027:SD:obligation:IMD-INSTALL",
+      "obligation": "Install an insulation monitor in the tractive system.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.1:p001",
+          "source_rule_id": "EV.8.6.1",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "69f42ea30b7505be455a8ef02c4f484fe4177bee0a02d7f945c373a05fe1c42e",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "imd"
+      ],
+      "verification_obligation": "Inspect the actual tractive-system IMD connections and exercise insulation sensing at the installed interface.",
+      "unresolved_decisions": [],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "IMD-APPROVAL",
+      "identifier": "FSAE2027:SD:obligation:IMD-APPROVAL",
+      "obligation": "Choose an IMD model explicitly approved by the applicable official event Rules FAQ.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.2:p001",
+          "source_rule_id": "EV.8.6.2",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "f829dc0de7028ca80bc35f75ed242b82195828d8dcbecb2c0ed07d0a66527e77",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "imd"
+      ],
+      "verification_obligation": "Compare the selected exact part/model with the pinned applicable official FAQ approval list.",
+      "unresolved_decisions": [
+        "Approved IMD model and applicable official Rules FAQ are TBD; this draft selects no part."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "IMD-THRESHOLD",
+      "identifier": "FSAE2027:SD:obligation:IMD-THRESHOLD",
+      "obligation": "Set IMD response to at least 500 ohms per volt of maximum TS operating voltage.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.3:p001",
+          "source_rule_id": "EV.8.6.3",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "c9e78d7603203b34ecfbfba1c8843740fbcd25c5dcbca3600fb9994a94067150",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "imd"
+      ],
+      "verification_obligation": "Use the actual maximum operating voltage to calculate the response resistance and inject insulation values around the selected threshold.",
+      "unresolved_decisions": [
+        "Maximum operating voltage and resulting resistance setting TBD; the 600-V rule ceiling is not assumed to be the design voltage."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "IMD-INDEPENDENT",
+      "identifier": "FSAE2027:SD:obligation:IMD-INDEPENDENT",
+      "obligation": "Detect insulation failure and IMD malfunction without influence from programmable logic.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.4:p001",
+          "source_rule_id": "EV.8.6.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "0727b2fde3a3d8cafa24a908b72c1019a6105fa90f379c0f595a78e541c00266",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.4:p002",
+          "source_rule_id": "EV.8.6.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "764e9faa3f0acf13005dbbf794e975af5c93e19dc920493f29edd326489c25fa",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.4:p003",
+          "source_rule_id": "EV.8.6.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "e08a9d28a781ab6f9e12d2bda41e99992e35c2c6a53f5fe70efa81f7f1c460a6",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.4:p004",
+          "source_rule_id": "EV.8.6.4",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "6f96fef9ca934d6976bd9c74dc5ac39aa33942761c873cbe967aa22ad90c9ba4",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "imd",
+        "accept",
+        "cutout"
+      ],
+      "verification_obligation": "Inject insulation/monitor faults while stopping or corrupting programmable controllers; prove independent shutdown.",
+      "unresolved_decisions": [
+        "Nonprogrammable IMD safety output and independent wiring details TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "IMD-TRIP-INDICATION",
+      "identifier": "FSAE2027:SD:obligation:IMD-TRIP-INDICATION",
+      "obligation": "IMD faults open shutdown and latch IMD warning plus TS-status indication until manual IMD reset.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.5:p001",
+          "source_rule_id": "EV.8.6.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "77db6931417f63d30f7bd68420bf70238fa5c64327e1fe98640d1c27a1baf92a",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.5:p002",
+          "source_rule_id": "EV.8.6.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "0a68182d54dbcc6988778bf115a863d17c4beef2a79b4d488a1f45998aa29efd",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.5:p003",
+          "source_rule_id": "EV.8.6.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "dc983586b3527376833da9c003bea4fd87b15a0425bff72c61e4da151ace62cd",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.5:p004",
+          "source_rule_id": "EV.8.6.5",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "7fab3aa3cb1569bdab0967193ee98cd11e4fbabf41666471f46c8f77caa8fb18",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "imd",
+        "accept",
+        "latch",
+        "indicate"
+      ],
+      "verification_obligation": "Inject insulation and monitor faults; verify open circuit and retained indications until permitted reset.",
+      "unresolved_decisions": [
+        "TS status indication EV.6.1.6e implementation is a dependent slice."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "IMD-LAMP",
+      "identifier": "FSAE2027:SD:obligation:IMD-LAMP",
+      "obligation": "Provide a red driver-visible IMD-marked warning in bright sunlight and perform the EV.6.3 lamp check.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.6:p001",
+          "source_rule_id": "EV.8.6.6",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "d91bbb4d65f58db8574025f9b85b959c803b5f7c1d3b570fefff4d6c3eb31508",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.6:p002",
+          "source_rule_id": "EV.8.6.6",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "f871e1a6da1f10ce9865651265aea732e1fe3760ad7c3a3d2795dc1254a171ed",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.6:p003",
+          "source_rule_id": "EV.8.6.6",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "03328a62fd70f4d85b061d721ac35891bfc7667e9214367fb9348a255bb65046",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.6:p004",
+          "source_rule_id": "EV.8.6.6",
+          "source_pages": [
+            108
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "dfe40fdc19478c033663f278386f80ba4de03cdb07b4da277d60d310959e93df",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.6.7:p001",
+          "source_rule_id": "EV.8.6.7",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "60647c6f85cdfc1d0cf7b9a0e5d3ff70bc372fc52728ad611e7a48d2b6294d91",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "indicate",
+        "lamp-check"
+      ],
+      "verification_obligation": "Inspect marking/color and seated-driver sunlight visibility; execute the detailed EV.6.3 check.",
+      "unresolved_decisions": [
+        "IMD lamp mounting/brightness and detailed EV.6.3 sequence TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "INTERLOCK-LOCATIONS",
+      "identifier": "FSAE2027:SD:obligation:INTERLOCK-LOCATIONS",
+      "obligation": "Install required interlocks at EV.4.1.3, EV.5.5.2 and EV.7.4.4 interfaces; additional interlocks are permitted, not automatically required.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.1:p001",
+          "source_rule_id": "EV.8.8.1",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "667ea8ad1d910368998fd520952e6d1bfa69f5eb3c1fcbad00a5566bebb18896",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.2:p001",
+          "source_rule_id": "EV.8.8.2",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "bfe55e807b83e7566c11c622864cd3541c12790eaeaa5e3dc0b44844d996aa89",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "interlocks",
+        "series"
+      ],
+      "verification_obligation": "Review all three referenced interfaces, map every required connection and test each break independently.",
+      "unresolved_decisions": [
+        "Exact disconnect/enclosure/connector map and optional additional interlocks TBD; referenced clauses need full review."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "INTERLOCK-OPEN",
+      "identifier": "FSAE2027:SD:obligation:INTERLOCK-OPEN",
+      "obligation": "A broken or interrupted interlock connection opens shutdown.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.3:p001",
+          "source_rule_id": "EV.8.8.3",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "53374b4c7f08a44968b722c475182249bda2a9d56e0e190dfe65eaa22411ff34",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "interlocks",
+        "accept",
+        "cutout"
+      ],
+      "verification_obligation": "Break each connector/interlock connection and verify isolation/precharge drive current stops.",
+      "unresolved_decisions": [],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "INTERLOCK-ROUTING",
+      "identifier": "FSAE2027:SD:obligation:INTERLOCK-ROUTING",
+      "obligation": "Apply any EV.7.5 interlock-separation exception only after reviewing EV.8.8.4's listed harness, connector and enclosure/location conditions, including the less-than-75-mm condition.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.4:p001",
+          "source_rule_id": "EV.8.8.4",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "92f8202aa0f4a71bc8897e312e960e3d9187712898873a7de99b6a51d3764aff",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.4:p002",
+          "source_rule_id": "EV.8.8.4",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "9c94e9ce84812e608ac10f49da256b4b96175aa3b09189bad8888e4217c517e2",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.4:p003",
+          "source_rule_id": "EV.8.8.4",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "63fc1a53282a715ce48e0475be3be5ff8cb10093651d5b21bb8aef7de6ece0cf",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.8.4:p004",
+          "source_rule_id": "EV.8.8.4",
+          "source_pages": [
+            109
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "e9166fb6a2287e7c515a500304e8a1862fa8f384363af95b734b0998785f8a72",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "interlocks",
+        "series"
+      ],
+      "verification_obligation": "Inspect actual routing and evaluate every applicable exception condition and the strict 75-mm boundary.",
+      "unresolved_decisions": [
+        "Routing design and precise applicability of the listed exception conditions TBD; this draft does not automatically waive separation."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "MASTERS-DIRECT",
+      "identifier": "FSAE2027:SD:obligation:MASTERS-DIRECT",
+      "obligation": "Provide two directly acting master switches meeting T.9.3 location/configuration; do not substitute relay or logic control.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.1:p001",
+          "source_rule_id": "EV.8.9.1",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "c91c83b989224cbd9aa77386a596e93f33440ea54b262969b063500d5740e935",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.1:p002",
+          "source_rule_id": "EV.8.9.1",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "18f51d3a7de1331e42aa92d911f49b843785c692f985f36189a3e80e3bd9db4b",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.1:p003",
+          "source_rule_id": "EV.8.9.1",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8e7918d152526e98e192f5813b5d7d64f2aa19e4a8ae919c9ccd098677033378",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches",
+        "series"
+      ],
+      "verification_obligation": "Inspect distinct GLV/TS switches, direct-current contacts and T.9.3 location/configuration.",
+      "unresolved_decisions": [
+        "Switch parts and T.9.3 packaging review TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "GLV-MASTER",
+      "identifier": "FSAE2027:SD:obligation:GLV-MASTER",
+      "obligation": "GLVMS stops all GLV power and is labeled LV within a completely red circle greater than 50 mm diameter.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.2:p001",
+          "source_rule_id": "EV.8.9.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "cb83a38edb8369b0bdeb3e64f27f66f97ed8c753379e86c2cb7cd7feca7a94ab",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.2:p002",
+          "source_rule_id": "EV.8.9.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "e86c60f3613814361a2003762a95a0470726cea63efe8bf33e46efb656a0642a",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.2:p003",
+          "source_rule_id": "EV.8.9.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "64b9855b55517f3a7e90bc7024e1b1748aa707f86962a56fd4125f54918311cf",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.2:p004",
+          "source_rule_id": "EV.8.9.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "34edf58707b8e2260e34f05f5f26b0387f45f0922cbce62c881aa5eb95801274",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "glv-master",
+        "glv",
+        "switches",
+        "series"
+      ],
+      "verification_obligation": "Operate GLVMS and measure every GLV supply off; inspect marking/color and a circle strictly larger than 50 mm.",
+      "unresolved_decisions": [
+        "GLV power-distribution completeness and physical switch marking layout TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "TS-MASTER",
+      "identifier": "FSAE2027:SD:obligation:TS-MASTER",
+      "obligation": "TSMS opens shutdown when OFF; it is the last switch before IRs except precharge circuitry/interlocks, has an orange circle greater than 50 mm, TS/W012 marking and OFF lockout/tagout.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.3:p001",
+          "source_rule_id": "EV.8.9.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "744bfe9523aeef31f39f3fcacede2779b8c86741d71ba86a80dce75a0685bcc5",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.3:p002",
+          "source_rule_id": "EV.8.9.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "34f5f8f9d41f9b2385979da46d33cb2e13d213b0f59fb5700f89d656845e88ad",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.3:p003",
+          "source_rule_id": "EV.8.9.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8560c8a3b231acb75af6c809b56e0ad611c6027c22fef337de85d4bd03e8a7c1",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.3:p004",
+          "source_rule_id": "EV.8.9.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "5902bee526ca4f2748681dac0b4de1b7b2098efd43e1752576c55580b37f785d",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.3:p005",
+          "source_rule_id": "EV.8.9.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "ddafdf0600023176dcffe295633b4ed7ccaf41a8c5be73bd5da8349336ccc5c7",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.9.3:p006",
+          "source_rule_id": "EV.8.9.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "177f4facfaa44bd23b61d25615cefc5e22d97e3bcf678c393f2adb441d5fa0c3",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches",
+        "series",
+        "coils"
+      ],
+      "verification_obligation": "Inspect electrical order, OFF opening, lockout/tagout and the required orange area and TS/ISO-7010-W012 marking.",
+      "unresolved_decisions": [
+        "TSMS/contact selection, exact packaging, official symbol implementation and EV.12.3.1 process TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BUTTON-COUNT",
+      "identifier": "FSAE2027:SD:obligation:BUTTON-COUNT",
+      "obligation": "Install the three required shutdown buttons: left side, right side and cockpit.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.1:p001",
+          "source_rule_id": "EV.8.10.1",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8b179556fa3cdd006926d153578d9c2d98c5450c91a02e6cc967a4ebfa073258",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches",
+        "series"
+      ],
+      "verification_obligation": "Locate and independently operate all three required buttons.",
+      "unresolved_decisions": [],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BUTTON-MECHANISM",
+      "identifier": "FSAE2027:SD:obligation:BUTTON-MECHANISM",
+      "obligation": "Use push-pull or push-rotate emergency switches that open and hold OFF and permit closure ON, while never overriding a latched protective trip.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.2:p001",
+          "source_rule_id": "EV.8.10.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "aed109a4c6b459e406d97da650883a8147c7d6de4e2c493d4dd999bc1cacc5e5",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.2:p002",
+          "source_rule_id": "EV.8.10.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "43c6deb18a386c6876d2085dffdfda44641ff3920378e9cdf7f87826391454e6",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.2:p003",
+          "source_rule_id": "EV.8.10.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "233c47ed43373c143256186a230a5b9f5bbe0c97423498db64b49d10bc33cbf1",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.2:p004",
+          "source_rule_id": "EV.8.10.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "45b7f7aca64570b9beca1b3dcbbca0bafd8864bde577f8aceaf8f3446ccffe88",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.2:p005",
+          "source_rule_id": "EV.8.10.2",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "8d6b5e766ab5784444969c17c8b5f3f28be5b1481c5a2f984d099964d5c69b40",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches",
+        "series",
+        "latch"
+      ],
+      "verification_obligation": "Inspect mechanisms and test hold-OFF/ON behavior both with and without a latched protective trip.",
+      "unresolved_decisions": [
+        "Selected emergency-stop hardware and current ratings TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BUTTON-SIDES",
+      "identifier": "FSAE2027:SD:obligation:BUTTON-SIDES",
+      "obligation": "Place left/right buttons aft of the main hoop near the specified bracing junction; each is at least 40 mm diameter and not easily removed or mounted on removable bodywork.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.3:p001",
+          "source_rule_id": "EV.8.10.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "7b00b8a9921299250af8c0690a3ab8e9d9f414ad222a939fd08edda20f784ff2",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.3:p002",
+          "source_rule_id": "EV.8.10.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "608321a536e5bce73c913e4a96b39d5a77b6bc90953538c995df9d9e6ed2ca63",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.3:p003",
+          "source_rule_id": "EV.8.10.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "fe95fa65d2fae10185be70374bd949f9a9b3286abab3b731c77cc76a54103063",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.3:p004",
+          "source_rule_id": "EV.8.10.3",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "78aac798c8ea6b21210412a2a249d3c2406a1475620ff43935d5ab6675612a34",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches"
+      ],
+      "verification_obligation": "Inspect both side installations, retention, bodywork and minimum 40-mm diameter.",
+      "unresolved_decisions": [
+        "Chassis packaging, F.5.9 junction location and mounting/retention design TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BUTTON-COCKPIT",
+      "identifier": "FSAE2027:SD:obligation:BUTTON-COCKPIT",
+      "obligation": "Place the cockpit button within easy unobstructed reach of the belted driver adjacent to the steering wheel; diameter is at least 24 mm.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.4:p001",
+          "source_rule_id": "EV.8.10.4",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "91d13e3c7b98d851381b4570cb88284f84a0549342c2f16ba9613ec0ceab9e5d",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.4:p002",
+          "source_rule_id": "EV.8.10.4",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "832f912279a54ba5f88d52c2576634da5be0844d549bd8d5d19c3a614f4a2308",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        },
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.4:p003",
+          "source_rule_id": "EV.8.10.4",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "577f36fc65d9c4fe69a3c5d255da89666f0b29caa21c83d34051e836c0530a69",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches"
+      ],
+      "verification_obligation": "Test reach with the driver restrained and inspect wheel/other obstructions and minimum 24-mm diameter.",
+      "unresolved_decisions": [
+        "Driver envelope, cockpit geometry and button installation TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    },
+    {
+      "key": "BUTTON-SYMBOL",
+      "identifier": "FSAE2027:SD:obligation:BUTTON-SYMBOL",
+      "obligation": "Place the specified red-spark electrical symbol on a white-edged blue triangle near every shutdown button.",
+      "source_clauses": [
+        {
+          "clause_id": "FSAE-2027-V1:EV.8.10.5:p001",
+          "source_rule_id": "EV.8.10.5",
+          "source_pages": [
+            110
+          ],
+          "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+          "source_text_sha256": "510f126f710aaef5b4505e07c2ff127557384d0aa7fcc9d9cb44d3f857bf22f1",
+          "source_review_status": "visually_checked_prose_on_pages_105_to_110"
+        }
+      ],
+      "model_keys": [
+        "switches"
+      ],
+      "verification_obligation": "Inspect symbol identity and placement beside each of the three buttons.",
+      "unresolved_decisions": [
+        "Final marking artwork and installation TBD."
+      ],
+      "interpretation_status": "interpreted",
+      "coverage_status": "draft_not_applied",
+      "verification_status": "not_verified"
+    }
+  ],
+  "figure_label_records": [
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.1.7:p002",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "687de21a9cc51a238747f752364cad4344072d37ae45a6ea3683b838828dff20",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p004",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "a25c399646583805c9f8f42fb01d5b16a2e2eaefdf85cba7b0d78bb7a20948f8",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p005",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "959ff0b5aecce885d7bb244f163c7964b0f0b0002b630753f5acbbe186f291dc",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p006",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "0e5ef1419aad4439e03ad8f5912e7eb8856b70b4920d0447ca864faea06160ec",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p007",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "2bd2e403f3a69630888d98ee94e16cbdaf27696db513e3ac086a8202d440097c",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p008",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "a7b3920731a6142dc98d34d9a64622b71442912cd894b22002172c039f264278",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p009",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "71ba2e05b0bd7c65865cb15976418fd6c7e06a9372537e0c2d9b4b6b2718579c",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p010",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "2ee2086738d8a6fa75c4ea43d4727f6bf0ac6dd9ed1a24bfb7f28e67d2eeaa0e",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p011",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "39a08b71d7ac9d63e5aca163d2e83c5c61f6e110460db73bf29aa18fcbb3a7dd",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p012",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "8f6ec01e77424bb2b50d0bb7f820d593c82b9bbe6ccc49c52502ebae996398d8",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p013",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "33900795e23e9100f49e86fdea759d7ec442342b3a686de93ed9b488700ce95b",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p014",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "2ee2086738d8a6fa75c4ea43d4727f6bf0ac6dd9ed1a24bfb7f28e67d2eeaa0e",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    },
+    {
+      "clause_id": "FSAE-2027-V1:EV.8.2.3:p015",
+      "source_pages": [
+        106
+      ],
+      "source_text_sha256": "4b0152e9cf6c4acb11f71290ea92ea6bf0d57c0137f2025012e7018933b53225",
+      "status": "figure_label_not_normative_prose_requires_separate_figure_review"
+    }
+  ],
+  "completion_status": "partial_candidate_design_with_unresolved_hardware_and_dependencies",
+  "verification_status": "not_verified",
+  "stable_model_id_algorithm": "UUID.nameUUIDFromBytes(UTF8('FSAE2027:SD:' + model_key))"
+}

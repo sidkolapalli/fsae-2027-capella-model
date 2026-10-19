@@ -1,0 +1,88 @@
+// Typed trace batch @@BATCH_NUMBER@@/2, after 30-model-vehicle-protection.
+// Scoped candidate allocations only; source-global coverage and physical verification remain unchanged.
+assert session.sessionResource.URI.toString().toLowerCase().contains('/fsae-2027-electric-arcadia/')
+def req = api.requirements()
+assert req.available() && req.viewpointEnabled()
+assert api.layer('SA').system.summary == 'FSAE2027:bootstrap-v1'
+def prefix = 'FSAE2027:VP '
+def sliceId = 'FSAE2027:vehicle-protection-v1'
+def stableId = { key -> java.util.UUID.nameUUIDFromBytes(('FSAE2027:VP:' + key).getBytes('UTF-8')).toString() }
+def element = { key ->
+    def value = api.findById(stableId(key))
+    assert value != null && value.eResource() != null && !value.eIsProxy(): 'Missing bounded candidate structure ' + key
+    value
+}
+def groups = @@GROUPS@@
+groups.each { group -> group.source_clauses = group.source_clauses.collect { source -> [clause_id:'FSAE-2027-V1:' + source[0], source_text_sha256:source[1]] } }
+def sourceModule = req.find('FSAE-2027-V1:source-module')
+def derivedModule = req.find('FSAE2027:VP:derived-module')
+def folder = req.find('FSAE2027:VP:derived-folder')
+assert sourceModule != null && derivedModule != null && folder != null && folder.eContainer() == derivedModule
+assert req.requirements(derivedModule).size() == @@PREVIOUS_COUNT@@:
+    'Run batches once, in order. Existing requirements need review rather than overwrite.'
+def sources = req.requirements(sourceModule).collectEntries { [(it.ReqIFIdentifier):it] }
+assert sources.size() == 3197
+groups.each { group ->
+    assert req.find(group.identifier) == null
+    assert api.findById(stableId('constraint:VERIFY-' + group.key)) == null
+    group.source_clauses.each { source ->
+        def requirement = sources[source.clause_id]
+        assert requirement != null: 'Missing exact pinned source ' + source.clause_id
+        def attributes = req.attributes(requirement)
+        assert attributes.source_sha256 == '@@SOURCE_HASH@@' && attributes.source_text_sha256 == source.source_text_sha256
+        assert attributes.verification_status == 'not_verified': 'Existing evidence needs review'
+        assert attributes.vehicle_protection_slice_id == null: 'Existing scoped source allocation needs review'
+    }
+}
+def owners = [loadpath:'loadpath',rollover:'rollover',side:'side',front:'front',accommodate:'accommodate',barrier:'barrier',
+    restrain:'restrain',head:'head',pedal:'pedal','brake-demand':'pedal','hydraulic-a':'hydraulic-a','hydraulic-b':'hydraulic-b',
+    friction:'friction','protect-brakes':'friction',overtravel:'overtravel','brake-light':'brake-light',inspect:'accommodate']
+def existingBots = api.findById(java.util.UUID.nameUUIDFromBytes('FSAE2027:SD:node:BOTS'.getBytes('UTF-8')).toString())
+assert existingBots != null && existingBots.nature == PhysicalComponentNature.NODE
+def jsonStrings = { values ->
+    '[' + values.collect { '"' + it.toString().replace('\\','\\\\').replace('"','\\"').replace('\n','\\n').replace('\r','\\r') + '"' }.join(',') + ']'
+}
+def state = [slice_id:sliceId,batch:@@BATCH_NUMBER@@,candidate_obligations:[:],verification_status:'not_verified',design_status:'unresolved']
+api.batch('Trace bounded vehicle protection candidate obligations batch @@BATCH_NUMBER@@') {
+    groups.each { group ->
+        def derived = req.create(folder, group.identifier, prefix + group.title, group.statement)
+        [source_document_id:'FSAE-2027-V1',source_sha256:'@@SOURCE_HASH@@',slice_id:sliceId,
+            interpretation_status:'bounded_source_interpretation_requires_design_review',coverage_status:'allocated_candidate_design',
+            verification_status:'not_verified',design_status:'unresolved',conditions_and_alternatives:jsonStrings(group.conditions_and_alternatives),
+            unresolved_decisions:jsonStrings(group.unresolved_decisions),dependent_source_rules:jsonStrings(group.dependent_source_rules),
+            source_clause_ids:jsonStrings(group.source_clauses.collect { it.clause_id })].each { key, value -> req.setAttribute(derived, key, value) }
+        def represented = group.model_keys.collectMany { key ->
+            def owner = owners[key]
+            ['OA','SA','LA','PA'].collect { element('function:' + it + ':' + key) } +
+                [element('logical:' + owner),element('behavior:' + owner),owner == 'overtravel' ? existingBots : element('node:' + owner),element('ci:' + owner)]
+        }.unique()
+        represented.each { req.satisfy(it, derived) }
+        def verification = api.create('Constraint', prefix + group.title + ' verification NOT_VERIFIED', api.layer('SA'))
+        assert api.set(verification, 'id', stableId('constraint:VERIFY-' + group.key))
+        def expression = org.polarsys.capella.core.data.information.datavalue.DatavalueFactory.eINSTANCE.createOpaqueExpression()
+        expression.languages.add('Text')
+        expression.bodies.add(group.verification_obligation + '\nConditions/alternatives: ' + group.conditions_and_alternatives.join(' ') +
+            '\nOpen choices: ' + group.unresolved_decisions.join(' ') + '\nDependencies outside this bounded interpretation: ' + group.dependent_source_rules.join(', ') +
+            '\nNOT_VERIFIED: a verification obligation, not an executed test or compliance statement.')
+        verification.ownedSpecification = expression
+        verification.constrainedElements.addAll(represented)
+        verification.summary = 'NOT_VERIFIED. Candidate source-grounded verification; construction and evidence remain unresolved.'
+        req.verify(derived, verification)
+        group.source_clauses.each { source ->
+            def requirement = sources[source.clause_id]
+            req.derive(derived, requirement)
+            represented.each { req.satisfy(it, requirement) }
+            req.verify(requirement, verification)
+            req.setAttribute(requirement, 'vehicle_protection_slice_id', sliceId)
+            req.setAttribute(requirement, 'vehicle_protection_interpretation_status', 'bounded_source_interpretation_requires_design_review')
+            req.setAttribute(requirement, 'vehicle_protection_coverage_status', 'allocated_candidate_design')
+            req.setAttribute(requirement, 'vehicle_protection_verification_status', 'not_verified')
+            req.setAttribute(requirement, 'vehicle_protection_model_element_ids', jsonStrings(represented.collect { api.id(it) }))
+            req.setAttribute(requirement, 'vehicle_protection_verification_element_ids', jsonStrings([api.id(verification)]))
+        }
+        state.candidate_obligations[group.key] = [identifier:derived.ReqIFIdentifier,source_paragraphs:group.source_clauses.size(),verification:api.id(verification)]
+    }
+}
+assert req.requirements(derivedModule).size() == @@AFTER_COUNT@@
+log.info('Vehicle-protection trace batch @@BATCH_NUMBER@@ applied. All construction decisions and physical verification remain unresolved.')
+return state

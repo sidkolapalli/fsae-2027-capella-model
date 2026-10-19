@@ -1,0 +1,29 @@
+[
+  {
+    "clause_id": "FSAE-2027-V1:EV.3.3.1:p001",
+    "source_text_sha256": "2a9345d46c7d85080436ada082a87902001b01e576d29badace42677c50b35c6",
+    "source_pages": [
+      93
+    ],
+    "short_paraphrase": "Energy-meter measured power is limited to 80 kW.",
+    "review_status": "source_checked_seed_requires_design_review"
+  },
+  {
+    "clause_id": "FSAE-2027-V1:EV.3.3.2:p001",
+    "source_text_sha256": "95805cc39b881bf4503212164fc6b400c4411d3400fa57dd2850ebb0bb8ed827",
+    "source_pages": [
+      93
+    ],
+    "short_paraphrase": "Voltage between any two points is limited to 600 V DC.",
+    "review_status": "source_checked_seed_requires_design_review"
+  },
+  {
+    "clause_id": "FSAE-2027-V1:EV.3.3.3:p001",
+    "source_text_sha256": "52f00cb1a17a0ba095f960d8ba081c780192c2802fdb5dee695420c0e2025e50",
+    "source_pages": [
+      93
+    ],
+    "short_paraphrase": "Disable regenerative energy recovery at vehicle speeds from 0 through 5 km/h.",
+    "review_status": "source_checked_seed_requires_design_review"
+  }
+]

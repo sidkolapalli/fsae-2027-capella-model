@@ -1,0 +1,158 @@
+// Read-only structure/trace verification. Run again after save, close and reopen.
+// This verifies native model structure only; it does not verify the built vehicle.
+assert session.sessionResource.URI.toString().toLowerCase().contains('/fsae-2027-electric-arcadia/')
+def req = api.requirements()
+assert req.available() && req.viewpointEnabled()
+assert api.layer('SA').system.summary == 'FSAE2027:bootstrap-v1'
+def stableId = { key -> java.util.UUID.nameUUIDFromBytes(('FSAE2027:VP:' + key).getBytes('UTF-8')).toString() }
+def element = { key ->
+    def value = api.findById(stableId(key))
+    assert value != null && value.eResource() != null && !value.eIsProxy(): 'Missing persisted vehicle-protection element ' + key
+    value
+}
+def groups = @@GROUPS@@
+groups.each { group -> group.source_clauses = group.source_clauses.collect { source -> [clause_id:'FSAE-2027-V1:' + source[0],source_text_sha256:source[1]] } }
+def sourceModule = req.find('FSAE-2027-V1:source-module')
+def derivedModule = req.find('FSAE2027:VP:derived-module')
+assert sourceModule != null && derivedModule != null && sourceModule != derivedModule
+assert req.requirements(sourceModule).size() == 3197: 'Source-paragraph bijection must remain intact'
+assert req.requirements(derivedModule).size() == @@GROUP_COUNT@@
+def sources = req.requirements(sourceModule).collectEntries { [(it.ReqIFIdentifier):it] }
+def selected = groups.collectMany { it.source_clauses*.clause_id }.unique()
+assert selected.size() == @@SOURCE_COUNT@@
+groups.each { group ->
+    def derived = req.find(group.identifier)
+    assert derived != null && derived.eResource() != null
+    def attributes = req.attributes(derived)
+    assert attributes.slice_id == 'FSAE2027:vehicle-protection-v1'
+    assert attributes.source_sha256 == '@@SOURCE_HASH@@'
+    assert attributes.coverage_status == 'allocated_candidate_design'
+    assert attributes.verification_status == 'not_verified' && attributes.design_status == 'unresolved'
+    assert attributes.interpretation_status == 'bounded_source_interpretation_requires_design_review'
+    assert attributes.source_clause_ids.startsWith('[') && attributes.unresolved_decisions.startsWith('[')
+    def verification = element('constraint:VERIFY-' + group.key)
+    assert verification.eClass().name == 'Constraint' && verification.summary.startsWith('NOT_VERIFIED')
+    assert verification.ownedSpecification != null && !verification.ownedSpecification.bodies.isEmpty()
+    assert derived.ownedRelations.any { it.eClass().name == 'CapellaIncomingRelation' && it.source == derived && it.target == verification && it.relationType?.ReqIFLongName == 'verify' }
+    group.source_clauses.each { source ->
+        def requirement = sources[source.clause_id]
+        assert requirement != null && requirement.eResource() != null
+        def sourceAttributes = req.attributes(requirement)
+        assert sourceAttributes.source_sha256 == '@@SOURCE_HASH@@' && sourceAttributes.source_text_sha256 == source.source_text_sha256
+        assert sourceAttributes.verification_status == 'not_verified'
+        assert sourceAttributes.vehicle_protection_slice_id == 'FSAE2027:vehicle-protection-v1'
+        assert sourceAttributes.vehicle_protection_coverage_status == 'allocated_candidate_design'
+        assert sourceAttributes.vehicle_protection_verification_status == 'not_verified'
+        assert sourceAttributes.vehicle_protection_model_element_ids.startsWith('[')
+        assert derived.ownedRelations.any { it.eClass().name == 'InternalRelation' && it.source == derived && it.target == requirement && it.relationType?.ReqIFLongName == 'derive' }
+        assert requirement.ownedRelations.any { it.eClass().name == 'CapellaIncomingRelation' && it.source == requirement && it.target == verification && it.relationType?.ReqIFLongName == 'verify' }
+    }
+    group.model_keys.each { key ->
+        ['OA','SA','LA','PA'].each { layer ->
+            def function = element('function:' + layer + ':' + key)
+            assert function.ownedExtensions.any { it.eClass().name == 'CapellaOutgoingRelation' && it.source == function && it.target == derived && it.relationType?.ReqIFLongName == 'satisfy' }
+            group.source_clauses.each { source ->
+                assert function.ownedExtensions.any { it.eClass().name == 'CapellaOutgoingRelation' && it.source == function && it.target == sources[source.clause_id] && it.relationType?.ReqIFLongName == 'satisfy' }
+            }
+        }
+    }
+}
+def componentKeys = ['loadpath','rollover','side','front','accommodate','barrier','restrain','head','pedal','hydraulic-a','hydraulic-b','friction','overtravel','brake-light']
+componentKeys.each { key ->
+    def logical = element('logical:' + key)
+    def behavior = element('behavior:' + key)
+    def node = key == 'overtravel' ? api.findById(java.util.UUID.nameUUIDFromBytes('FSAE2027:SD:node:BOTS'.getBytes('UTF-8')).toString()) : element('node:' + key)
+    def ci = element('ci:' + key)
+    assert logical.eClass().name == 'LogicalComponent'
+    assert behavior.nature == PhysicalComponentNature.BEHAVIOR && node.nature == PhysicalComponentNature.NODE
+    assert logical.ownedComponentRealizations.any { it.targetElement == api.layer('SA').system }
+    assert behavior.ownedComponentRealizations.any { it.targetElement == logical }
+    assert ci.ownedPhysicalArtifactRealizations.any { it.targetElement == node }
+    assert ci.ownedPhysicalArtifactRealizations.any { it.targetElement == behavior }
+    def deployment = element('deployment:' + key)
+    assert deployment.eClass().name == 'PartDeploymentLink'
+    assert deployment.location.abstractType == node && deployment.deployedElement.abstractType == behavior
+    assert deployment.eContainer() == deployment.location
+}
+def functionKeys = ['loadpath','rollover','side','front','accommodate','barrier','restrain','head','pedal','brake-demand','hydraulic-a','hydraulic-b','friction','protect-brakes','overtravel','brake-light','inspect']
+functionKeys.each { key ->
+    ['OA','SA','LA','PA'].each { layer ->
+        def function = element('function:' + layer + ':' + key)
+        assert function.eClass().name == [OA:'OperationalActivity',SA:'SystemFunction',LA:'LogicalFunction',PA:'PhysicalFunction'][layer]
+        assert function.ownedFunctions.isEmpty(): 'New responsibility must remain a leaf for allocation'
+        assert !function.componentFunctionalAllocations.isEmpty()
+        if (layer != 'OA') {
+            def above = [SA:'OA',LA:'SA',PA:'LA'][layer]
+            assert function.ownedFunctionRealizations.any { it.targetElement == element('function:' + above + ':' + key) }
+        }
+    }
+}
+def routeKeys = [['pedal','brake-demand'],['brake-demand','hydraulic-a'],['brake-demand','hydraulic-b'],['hydraulic-a','friction'],['hydraulic-b','friction'],
+    ['brake-demand','brake-light'],['pedal','overtravel'],['accommodate','restrain'],['restrain','rollover'],['restrain','head'],
+    ['front','loadpath'],['side','loadpath'],['rollover','loadpath'],['protect-brakes','friction']]
+routeKeys.each { pair ->
+    ['OA','SA','LA','PA'].each { layer ->
+        def flow = element('flow:' + layer + ':' + pair[0] + ':' + pair[1])
+        assert flow.eClass().name == 'FunctionalExchange'
+        if (layer == 'OA') {
+            assert flow.source == element('function:OA:' + pair[0]) && flow.target == element('function:OA:' + pair[1])
+        } else {
+            assert flow.source.eContainer() == element('function:' + layer + ':' + pair[0])
+            assert flow.target.eContainer() == element('function:' + layer + ':' + pair[1])
+        }
+    }
+    [['SA','OA'],['LA','SA'],['PA','LA']].each { layers ->
+        def lower = element('flow:' + layers[0] + ':' + pair[0] + ':' + pair[1])
+        def upper = element('flow:' + layers[1] + ':' + pair[0] + ':' + pair[1])
+        assert lower.ownedFunctionalExchangeRealizations.any { it.sourceElement == lower && it.targetElement == upper }
+        if (layers[1] != 'OA') {
+            assert lower.source.ownedPortRealizations.any { it.targetElement == upper.source }
+            assert lower.target.ownedPortRealizations.any { it.targetElement == upper.target }
+        }
+    }
+}
+def owners = [pedal:'pedal','brake-demand':'pedal','hydraulic-a':'hydraulic-a','hydraulic-b':'hydraulic-b',friction:'friction',
+    'brake-light':'brake-light',overtravel:'overtravel',accommodate:'accommodate',restrain:'restrain',rollover:'rollover',head:'head',
+    front:'front',side:'side',loadpath:'loadpath','protect-brakes':'friction']
+routeKeys.findAll { owners[it[0]] != owners[it[1]] }.each { pair ->
+    def upper = element('transport:LA:' + pair[0] + ':' + pair[1])
+    def lower = element('transport:PA:' + pair[0] + ':' + pair[1])
+    assert lower.ownedComponentExchangeRealizations.any { it.sourceElement == lower && it.targetElement == upper }
+    assert lower.sourcePort.ownedPortRealizations.any { it.targetElement == upper.sourcePort }
+    assert lower.targetPort.ownedPortRealizations.any { it.targetElement == upper.targetPort }
+    ['LA','PA'].each { layer ->
+        def transport = layer == 'LA' ? upper : lower
+        def flow = element('flow:' + layer + ':' + pair[0] + ':' + pair[1])
+        assert transport.allocatedFunctionalExchanges.contains(flow)
+        assert transport.sourcePort.allocatedFunctionPorts.contains(flow.source)
+        assert transport.targetPort.allocatedFunctionPorts.contains(flow.target)
+    }
+}
+['SA','LA','PA'].each { layer ->
+    def flow = element('bots-trip:' + layer)
+    assert flow.source.eContainer() == element('function:' + layer + ':overtravel')
+    def cutout = api.findById(java.util.UUID.nameUUIDFromBytes(('FSAE2027:SD:function:' + layer + ':cutout').getBytes('UTF-8')).toString())
+    assert flow.target.eContainer() == cutout
+    if (layer != 'SA') {
+        def above = layer == 'PA' ? 'LA' : 'SA'
+        def upper = element('bots-trip:' + above)
+        assert flow.ownedFunctionalExchangeRealizations.any { it.targetElement == upper }
+        assert flow.source.ownedPortRealizations.any { it.targetElement == upper.source }
+        assert flow.target.ownedPortRealizations.any { it.targetElement == upper.target }
+    }
+}
+['HYDRAULIC-INDEPENDENCE','CONSTRUCTION-CHOICES','DEPENDENCIES','AGGREGATE-INTERFACES'].each { key ->
+    assert element('constraint:' + key).summary.startsWith('NOT_VERIFIED')
+}
+assert api.layer('SA').system.ownedSystemComponents.isEmpty() && api.layer('SA').system.ownedFeatures.isEmpty()
+def domainDescriptions = [structure:'Support and protect occupants and equipment',cockpit:'Accommodate and restrain the driver',
+    brakes:'Decelerate and stop the vehicle',status:'Indicate electrical and readiness states']
+domainDescriptions.each { key, description ->
+    [OA:'OperationalActivity',SA:'SystemFunction',LA:'LogicalFunction',PA:'PhysicalFunction'].each { layer, type ->
+        def aggregate = api.find(type, 'FSAE2027:' + key + ' ' + description)
+        assert aggregate != null && !aggregate.ownedFunctions.isEmpty() && aggregate.componentFunctionalAllocations.isEmpty()
+    }
+}
+log.info('Bounded vehicle-protection native structure and typed traceability verified; construction decisions, hardware evidence and compliance remain unresolved')
+return [slice_id:'FSAE2027:vehicle-protection-v1', model_structure_status:'verified', selected_source_records:@@SOURCE_COUNT@@,
+    derived_obligations:@@GROUP_COUNT@@, verification_status:'not_verified', design_status:'unresolved', coverage_status:'bounded_candidate_design']

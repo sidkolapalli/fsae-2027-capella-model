@@ -1,0 +1,435 @@
+// Source-grounded additive candidate design. Apply only after reviewing this complete draft.
+// BSPD detection logic EV.8.7 belongs to the driver-demand slice; this slice owns its series contact interface.
+assert session.sessionResource.URI.toString().toLowerCase().contains('/fsae-2027-electric-arcadia/')
+def req = api.requirements()
+assert req.available() && req.viewpointEnabled()
+assert api.layer('SA').system.summary == 'FSAE2027:bootstrap-v1'
+def prefix = 'FSAE2027:SD '
+def stableId = { key -> java.util.UUID.nameUUIDFromBytes(('FSAE2027:SD:' + key).getBytes('UTF-8')).toString() }
+// Snapshot once: repeated findById calls after writes rescan the complete imported Requirements model.
+def existingIds = api.query { value -> value.eClass().getEStructuralFeature('id') != null }.collect { api.id(it) }.toSet()
+assert api.find('LogicalComponent', prefix + 'Independent BMS Logical monitor') == null:
+    'Shutdown slice already exists. Verify and extend it; do not replay the creation draft.'
+def module = req.find('FSAE-2027-V1:source-module')
+assert module != null
+def sourceRequirements = req.requirements(module).collectEntries { [(it.ReqIFIdentifier):it] }
+def obligations = @@OBLIGATIONS@@
+obligations.each { group ->
+    assert req.find(group.identifier) == null: 'A derived shutdown obligation already exists'
+    group.source_clauses.each { source ->
+        def requirement = sourceRequirements[source.clause_id]
+        assert requirement != null: 'Import the exact pinned source clauses before this slice'
+        def attributes = req.attributes(requirement)
+        assert attributes.source_sha256 == '@@PINNED_SHA@@'
+        assert attributes.source_text_sha256 == source.source_text_sha256
+        assert attributes.coverage_status == 'not_modeled': 'An existing source allocation must be reviewed before extending it'
+        assert attributes.verification_status == 'not_verified': 'Do not overwrite existing verification evidence'
+    }
+}
+
+def domainDescriptions = [shutdown:'Prevent or interrupt unsafe tractive energization',
+    'energy-storage':'Store and supply traction energy', 'tractive-distribution':'Distribute and isolate tractive electrical energy',
+    powertrain:'Convert traction energy into vehicle motion', status:'Indicate electrical and readiness states',
+    charging:'Recharge traction energy under protected conditions', 'low-voltage':'Supply and manage low voltage electrical power']
+def domains = domainDescriptions.collectEntries { key, description ->
+    def result = [logical:api.find('LogicalComponent', 'FSAE2027:' + key + ' Logical subsystem'),
+        behavior:api.find('PhysicalComponent', 'FSAE2027:' + key + ' Physical behavior'),
+        equipment:api.find('PhysicalComponent', 'FSAE2027:' + key + ' Equipment'),
+        ci:api.find('ConfigurationItem', 'FSAE2027:' + key + ' Subsystem CI')]
+    [OA:'OperationalActivity', SA:'SystemFunction', LA:'LogicalFunction', PA:'PhysicalFunction'].each { layer, type ->
+        result[layer] = api.find(type, 'FSAE2027:' + key + ' ' + description)
+    }
+    assert result.values().every { it != null }: 'Missing acceptance bootstrap domain ' + key
+    [(key):result]
+}
+// OperationalActor is a creation alias; native operational actors have EClass Entity.
+def operationalActors = ['Driver','Team personnel'].collectEntries { name ->
+    def actor = api.find('Entity', 'FSAE2027:' + name + ' Operational actor')
+    assert actor != null && actor.actor == true: 'Missing native operational actor ' + name
+    [(name):actor]
+}
+def operationalVehicle = api.find('Entity', 'FSAE2027:Vehicle in operational context')
+assert operationalVehicle != null && operationalVehicle.actor == false
+def components = [:]
+def functions = [:]
+def hardware = [:]
+def created = [:]
+def state = [slice_id:'FSAE2027:shutdown-v1', completion_status:'partial_candidate_design',
+    verification_status:'not_verified', components:[:], functions:[:], source_allocations:[:],
+    derived_requirements:[:], verification_constraints:[:], physical_links:[], transitions:[]]
+def identify = { element, key ->
+    def id = stableId(key)
+    assert !existingIds.contains(id): 'Conflicting deterministic shutdown ID ' + key
+    // The facade synchronizes native XMLResource ID maps and follows command undo/redo.
+    assert api.set(element, 'id', id)
+    existingIds.add(id)
+    created[key] = element
+    element
+}
+def expression = { text ->
+    def value = org.polarsys.capella.core.data.information.datavalue.DatavalueFactory.eINSTANCE.createOpaqueExpression()
+    value.languages.add('Text')
+    value.bodies.add(text)
+    value
+}
+def constraint = { key, name, text, references, owner = null ->
+    def value = identify(api.create('Constraint', prefix + name, owner ?: api.layer('SA')), 'constraint:' + key)
+    value.ownedSpecification = expression(text)
+    value.constrainedElements.addAll(references)
+    value.summary = 'NOT_VERIFIED. Source-grounded candidate design obligation; hardware evidence and dependent decisions remain open.'
+    value
+}
+def realizeExchange = { lower, upper, key ->
+    def realization = identify(org.polarsys.capella.core.data.fa.FaFactory.eINSTANCE.createFunctionalExchangeRealization(), 'exchange-realization:' + key)
+    realization.sourceElement = lower
+    realization.targetElement = upper
+    lower.ownedFunctionalExchangeRealizations.add(realization)
+    ['source','target'].each { side ->
+        def from = lower[side]
+        def to = upper[side]
+        if (from instanceof org.polarsys.capella.core.data.information.Port && to instanceof org.polarsys.capella.core.data.information.Port) {
+            def portRealization = identify(org.polarsys.capella.core.data.information.InformationFactory.eINSTANCE.createPortRealization(), 'port-realization:' + key + ':' + side)
+            portRealization.sourceElement = from
+            portRealization.targetElement = to
+            from.ownedPortRealizations.add(portRealization)
+        }
+    }
+}
+def createHardware = { key, name, domain, kind ->
+    def node = identify(api.create('PhysicalComponent', prefix + name, domains[domain].equipment), 'node:' + key)
+    node.nature = PhysicalComponentNature.NODE
+    node.kind = PhysicalComponentKind.HARDWARE
+    node.summary = 'Candidate hardware/interface. Exact parts, ratings, packaging and physical verification remain TBD.'
+    def ci = identify(api.create('ConfigurationItem', prefix + name + ' CI', domains[domain].ci), 'ci:' + key)
+    ci.kind = kind
+    ci.itemIdentifier = 'FSAE2027:SD:' + key
+    api.link(ci, node, 'PhysicalArtifactRealization')
+    hardware[key] = node
+    [node:node, ci:ci]
+}
+
+api.batch('Allocate EV.8 shutdown candidate safety behavior and native traceability') {
+    def specifications = [
+        [key:'bms', domain:'energy-storage', logical:'Independent BMS Logical monitor', behavior:'Independent BMS Physical monitor', equipment:'BMS safety monitor Equipment'],
+        [key:'imd', domain:'shutdown', logical:'Independent IMD Logical monitor', behavior:'Independent nonprogrammable IMD Physical circuit', equipment:'IMD Equipment approved model TBD'],
+        [key:'series', domain:'shutdown', logical:'Hardwired shutdown current path Logical subsystem', behavior:'Hardwired high-side shutdown Physical circuit', equipment:'Shutdown current path Equipment'],
+        [key:'latch', domain:'shutdown', logical:'Local manual-reset latch Logical subsystem', behavior:'Independent protective-trip latch Physical circuit', equipment:'Protective-trip latch Equipment'],
+        [key:'coils', domain:'tractive-distribution', logical:'Isolation precharge and discharge Logical interface', behavior:'Isolation precharge and discharge Physical behavior', equipment:'Isolation and discharge Equipment design TBD'],
+        [key:'torque', domain:'powertrain', logical:'Shutdown torque removal Logical interface', behavior:'Shutdown torque removal Physical behavior', equipment:'Inverter shutdown interface Equipment'],
+        [key:'indicate', domain:'status', logical:'Latched BMS IMD indication Logical subsystem', behavior:'BMS IMD warning and lamp-check Physical behavior', equipment:'Red BMS IMD warning Equipment']
+    ]
+    specifications.each { specification ->
+        def key = specification.key
+        def logical = identify(api.create('LogicalComponent', prefix + specification.logical, domains[specification.domain].logical), 'logical:' + key)
+        def behavior = identify(api.create('PhysicalComponent', prefix + specification.behavior, domains[specification.domain].behavior), 'behavior:' + key)
+        behavior.nature = PhysicalComponentNature.BEHAVIOR
+        def equipment = createHardware(key, specification.equipment, specification.domain, ConfigurationItemKind.HWCI)
+        api.link(behavior, logical, 'realization')
+        def behaviorPart = api.ensurePart(behavior)
+        def equipmentPart = api.ensurePart(equipment.node)
+        def deployment = identify(org.polarsys.capella.core.data.pa.deployment.DeploymentFactory.eINSTANCE.createPartDeploymentLink(), 'deployment:' + key)
+        deployment.deployedElement = behaviorPart
+        deployment.location = equipmentPart
+        equipmentPart.ownedDeploymentLinks.add(deployment)
+        api.link(equipment.ci, behavior, 'PhysicalArtifactRealization')
+        components[key] = [logical:logical, behavior:behavior, equipment:equipment.node, ci:equipment.ci]
+        state.components[key] = [logical:api.id(logical), behavior:api.id(behavior), equipment:api.id(equipment.node), ci:api.id(equipment.ci)]
+    }
+
+    def functionSpecifications = [
+        [key:'series', name:'Carry high-side shutdown current', owner:'series', domain:'shutdown'],
+        [key:'accept', name:'Accept independent shutdown trips', owner:'series', domain:'shutdown'],
+        [key:'cutout', name:'Open high-side shutdown current path', owner:'series', domain:'shutdown'],
+        [key:'latch', name:'Latch BMS IMD BSPD trip until local manual reset', owner:'latch', domain:'shutdown'],
+        [key:'reset', name:'Validate local manual reset with faults cleared', owner:'latch', domain:'shutdown'],
+        [key:'coils', name:'Remove isolation and precharge relay coil drive', owner:'coils', domain:'tractive-distribution'],
+        [key:'current', name:'Interrupt all tractive battery current', owner:'coils', domain:'tractive-distribution'],
+        [key:'discharge', name:'Reduce residual TS voltage to low voltage within 5 seconds', owner:'coils', domain:'tractive-distribution'],
+        [key:'torque', name:'Remove motor torque on shutdown', owner:'torque', domain:'powertrain'],
+        [key:'glv', name:'Open shutdown current path on any GLV loss', owner:'series', domain:'shutdown'],
+        [key:'glv-supply', name:'Observe GLV supply presence and loss', owner:'series', domain:'low-voltage'],
+        [key:'glv-master', name:'Remove all GLV power through direct GLVMS', owner:'series', domain:'low-voltage'],
+        [key:'switches', name:'Interrupt shutdown current through direct manual switches', owner:'series', domain:'shutdown'],
+        [key:'interlocks', name:'Open shutdown path on broken interlock connection', owner:'series', domain:'shutdown'],
+        [key:'voltage', name:'Measure every required cell-group voltage and apply datasheet limits', owner:'bms', domain:'energy-storage'],
+        [key:'temperature', name:'Measure negative-terminal temperatures and apply lower safe limit', owner:'bms', domain:'energy-storage'],
+        [key:'sense-fuse', name:'Detect tripped cell-tab voltage-sense protection', owner:'bms', domain:'energy-storage'],
+        [key:'bms-health', name:'Detect lost measurements and BMS internal faults', owner:'bms', domain:'energy-storage'],
+        [key:'bms', name:'Issue independent BMS trip for any monitored fault', owner:'bms', domain:'energy-storage'],
+        [key:'balance', name:'Inhibit cell balancing whenever shutdown is open', owner:'bms', domain:'energy-storage'],
+        [key:'imd', name:'Independently detect insulation and IMD operational faults', owner:'imd', domain:'shutdown'],
+        [key:'indicate', name:'Latch BMS IMD and TS fault indications until manual reset', owner:'indicate', domain:'status'],
+        [key:'lamp-check', name:'Check BMS and IMD warning lamps', owner:'indicate', domain:'status'],
+        [key:'demonstrate', name:'Provide shutdown test observability', owner:'series', domain:'shutdown']
+    ]
+    functionSpecifications.each { specification ->
+        def value = [owner:specification.owner]
+        [SA:'SystemFunction', LA:'LogicalFunction', PA:'PhysicalFunction'].each { layer, type ->
+            def function = identify(api.create(type, prefix + specification.name, domains[specification.domain][layer]), 'function:' + layer + ':' + specification.key)
+            api.allocate(function, layer == 'SA' ? api.layer('SA').system : components[specification.owner][layer == 'LA' ? 'logical' : 'behavior'])
+            function.summary = 'Candidate shutdown behavior. Threshold hardware, details and tests remain explicitly unresolved.'
+            value[layer] = function
+        }
+        api.link(value.LA, value.SA, 'realization')
+        api.link(value.PA, value.LA, 'realization')
+        functions[specification.key] = value
+        state.functions[specification.key] = [SA:api.id(value.SA), LA:api.id(value.LA), PA:api.id(value.PA)]
+    }
+    // Operational leaf interfaces let the independent BSPD slice connect without using an aggregate.
+    ['accept','torque'].each { key ->
+        def activity = identify(api.create('OperationalActivity', functions[key].SA.name, domains.shutdown.OA), 'function:OA:' + key)
+        api.allocate(activity, operationalVehicle)
+        activity.summary = 'Operational shutdown interface; physical implementation and verification remain pending.'
+        api.link(functions[key].SA, activity, 'realization')
+        functions[key].OA = activity
+        state.functions[key].OA = api.id(activity)
+    }
+    def routes = [
+        ['voltage','bms','Cell voltage and sense validity'], ['temperature','bms','Cell temperature and sense validity'],
+        ['sense-fuse','bms','Cell-tab protection fault'], ['bms-health','bms','Measurement loss or internal BMS fault'],
+        ['bms','accept','Independent BMS shutdown trip'], ['imd','accept','Independent IMD shutdown trip'],
+        ['glv','accept','GLV supply loss'], ['switches','accept','Direct manual switch opening'],
+        ['glv-master','glv','Master switch removes all GLV supply'],
+        ['interlocks','accept','Interlock continuity lost'], ['accept','cutout','Any series path open request'],
+        ['accept','latch','BMS IMD BSPD protective-trip cause'], ['latch','cutout','Latched protective inhibit'],
+        ['reset','latch','Permitted local manual reset only'], ['cutout','coils','Coil drive removed'],
+        ['coils','current','Isolation relays release and interrupt current'], ['cutout','discharge','Residual energy discharge required'],
+        ['cutout','torque','Torque removed and motor free-spin'], ['cutout','balance','Open shutdown balancing inhibit'],
+        ['bms','indicate','BMS warning and TS-status latch'], ['imd','indicate','IMD warning and TS-status latch'],
+        ['latch','indicate','Retain trip indications until permitted reset'], ['lamp-check','indicate','Warning lamp check']
+    ]
+    routes.each { route ->
+        ['SA','LA','PA'].each { layer ->
+            def link = api.link(functions[route[0]][layer], functions[route[1]][layer], 'FunctionalExchange')
+            identify(link, 'flow:' + layer + ':' + route[0] + ':' + route[1])
+            api.rename(link, prefix + layer + ' ' + route[2])
+        }
+    }
+    ['SA','LA','PA'].each { layer ->
+        ['voltage','temperature'].each { key ->
+            def link = api.link(domains.charging[layer], functions[key][layer], 'FunctionalExchange')
+            identify(link, 'flow:' + layer + ':charging:' + key)
+            api.rename(link, prefix + layer + ' Monitor while battery connected to charger ' + key)
+        }
+        def link = api.link(functions['glv-supply'][layer], functions.glv[layer], 'FunctionalExchange')
+        identify(link, 'flow:' + layer + ':low-voltage:glv')
+        api.rename(link, prefix + layer + ' Loss of GLV supply')
+    }
+    created.keySet().findAll { it.startsWith('flow:SA:') }.collect { it.substring('flow:SA:'.length()) }.each { key ->
+        realizeExchange(created['flow:LA:' + key], created['flow:SA:' + key], 'LA:' + key)
+        realizeExchange(created['flow:PA:' + key], created['flow:LA:' + key], 'PA:' + key)
+    }
+
+    // Hardwired current topology uses real native PhysicalPorts, Parts and PhysicalLinks.
+    def cs = org.polarsys.capella.core.data.cs.CsFactory.eINSTANCE
+    def contacts = [
+        [key:'GLVMS', name:'Direct GLV master switch contact'], [key:'BMS-CONTACT', name:'Normally-open independent BMS shutdown contact'],
+        [key:'IMD-CONTACT', name:'Normally-open independent IMD shutdown contact'], [key:'BSPD-CONTACT', name:'Normally-open BSPD series contact interface'],
+        [key:'INERTIA', name:'Inertia switch contact'], [key:'BUTTON-LEFT', name:'Left-side shutdown button'],
+        [key:'BUTTON-RIGHT', name:'Right-side shutdown button'], [key:'BUTTON-COCKPIT', name:'Cockpit shutdown button'],
+        [key:'BOTS', name:'Brake-over-travel direct switch contact'], [key:'TSMS', name:'Direct lockable TS master switch contact'],
+        [key:'INTERLOCKS', name:'Required interlock series-chain interface locations TBD']
+    ]
+    def port = { key, node, direction ->
+        def value = identify(cs.createPhysicalPort(), 'physical-port:' + key + ':' + direction)
+        value.name = prefix + key + ' shutdown-current ' + direction
+        node.ownedFeatures.add(value)
+        value
+    }
+    def physicalInterface = { key, name, domain ->
+        def value = createHardware(key, name, domain, ConfigurationItemKind.INTERFACE_CI)
+        value.input = port(key, value.node, 'in')
+        value.output = port(key, value.node, 'out')
+        value
+    }
+    def chain = contacts.collect { contact ->
+        def value = physicalInterface(contact.key, contact.name, 'shutdown')
+        value.node.summary = contact.key in ['BMS-CONTACT','IMD-CONTACT','BSPD-CONTACT']
+            ? 'Normally-open high-side protective contact; sustaining-power loss opens it. Independent circuitry and no-backfeed design TBD.'
+            : 'Direct current-carrying series shutdown contact/interface; hardware rating, exact packaging and referenced requirements TBD.'
+        if (contact.key in ['BMS-CONTACT','IMD-CONTACT','BSPD-CONTACT']) {
+            def normalOpen = identify(org.polarsys.capella.core.data.capellacore.CapellacoreFactory.eINSTANCE.createBooleanPropertyValue(), 'property:normally-open:' + contact.key)
+            normalOpen.name = 'Normally open protective output'
+            normalOpen.value = true
+            value.node.ownedPropertyValues.add(normalOpen)
+        }
+        value.key = contact.key
+        value
+    }
+    def supply = physicalInterface('GLV-SUPPLY', 'GLV battery and shutdown supply interface', 'low-voltage')
+    def returnPath = physicalInterface('GLV-RETURN', 'GLV coil return interface', 'low-voltage')
+    def allGlvLoads = physicalInterface('ALL-GLV-LOADS', 'All GLV loads power-distribution boundary details TBD', 'low-voltage')
+    def coils = ['IR-POSITIVE','IR-NEGATIVE','PRECHARGE-RELAY'].collect { key ->
+        physicalInterface(key, key + ' coil interface ratings TBD', 'tractive-distribution') + [key:key]
+    }
+    def wire = { key, source, target ->
+        def link = identify(cs.createPhysicalLink(), 'wire:' + key)
+        link.name = prefix + 'Current path ' + key
+        [source,target].eachWithIndex { endpoint, index ->
+            def end = identify(cs.createPhysicalLinkEnd(), 'wire-end:' + key + ':' + index)
+            end.part = api.ensurePart(endpoint.node)
+            end.port = index == 0 ? endpoint.output : endpoint.input
+            link.ownedPhysicalLinkEnds.add(end)
+            link.linkEnds.add(end)
+        }
+        api.layer('PA').system.ownedPhysicalLinks.add(link)
+        state.physical_links << [id:api.id(link), source:api.id(source.node), target:api.id(target.node)]
+        link
+    }
+    def ordered = [supply] + chain
+    (0..ordered.size()-2).each { index -> wire('series-' + index, ordered[index], ordered[index+1]) }
+    wire('all-glv-loads-supply', chain[0], allGlvLoads)
+    wire('all-glv-loads-return', allGlvLoads, returnPath)
+    coils.each { coil ->
+        wire('load-' + coil.key, chain[-1], coil)
+        wire('return-' + coil.key, coil, returnPath)
+    }
+    constraint('HIGH-SIDE-TOPOLOGY', 'High-side direct current and no backfeed INVARIANT',
+        'Every listed contact directly carries the high-side sustaining current to all isolation/precharge coil branches. TSMS is the final switch, followed only by permitted interlocks/precharge circuitry. No bypass or backfeed source may energize these loads after any contact opens. Ratings and exact wiring remain TBD.',
+        chain.collect { it.node } + coils.collect { it.node } + [supply.node,returnPath.node])
+    constraint('DEPENDENCIES', 'External safety dependencies TBD',
+        'Review T.3.3 BOTS, T.9.4 inertia switching, T.9.1.2 low-voltage limits, T.9.3 master-switch configuration/location, EV.5.4 isolation relays, EV.6 status/lamp check, EV.8.7 independent BSPD, EV.9 charging, EV.12 activation and reset work practices, and the current approved IMD FAQ before closing this design.',
+        [components.series.logical,components.imd.equipment,components.coils.equipment])
+
+    // A real native guarded state machine preserves protective-trip latching and safe outputs.
+    def common = org.polarsys.capella.core.data.capellacommon.CapellacommonFactory.eINSTANCE
+    def machine = identify(common.createStateMachine(), 'state-machine')
+    machine.name = prefix + 'Shutdown latch and residual-energy state machine'
+    components.latch.logical.ownedStateMachines.add(machine)
+    def region = identify(common.createRegion(), 'state-region')
+    region.name = prefix + 'Shutdown circuit operation'
+    machine.ownedRegions.add(region)
+    def states = [:]
+    ['Open','Energized','Discharging','Latched protective trip'].each { name ->
+        def value = identify(common.createState(), 'state:' + name)
+        value.name = prefix + name
+        region.ownedStates.add(value)
+        states[name] = value
+    }
+    def initial = identify(common.createInitialPseudoState(), 'state:initial')
+    initial.name = prefix + 'Initial safe shutdown state'
+    region.ownedStates.add(initial)
+    // State.availableAbstractFunctions is derived/read-only; write its stored function-side relation.
+    def available = { value, keys ->
+        keys.each { key ->
+            def function = functions[key].LA
+            if (!function.availableInStates.contains(value)) function.availableInStates.add(value)
+        }
+    }
+    def activeFunctions = ['voltage','temperature','bms','imd','series']
+    available(states.Energized, activeFunctions)
+    // Charger-connected monitoring and protective indication remain available even while TS is open.
+    states.values().each { value ->
+        available(value, ['voltage','temperature','bms','imd','accept','latch','indicate'])
+    }
+    ['Open','Discharging','Latched protective trip'].each { name ->
+        available(states[name], ['cutout','coils','current','torque','balance'])
+        states[name].stateInvariant = constraint('STATE-' + name, name + ' safe outputs INVARIANT',
+            'Isolation and precharge coil drive absent; tractive battery current interrupted; no applied motor torque; cell balancing inhibited. Residual TS voltage is discharged to T.9.1.2 low voltage within 5 s after opening. Monitoring remains required while charger-connected.',
+            ['cutout','coils','current','torque','balance','discharge'].collect { functions[it].LA }, states[name])
+    }
+    available(states.Discharging, ['discharge'])
+    available(states['Latched protective trip'], ['latch','reset','indicate'])
+    def transition = { key, source, target, guard, trigger ->
+        def value = identify(common.createStateTransition(), 'transition:' + key)
+        value.name = prefix + key
+        value.source = source
+        value.target = target
+        value.triggerDescription = trigger
+        region.ownedTransitions.add(value)
+        value.guard = constraint('GUARD-' + key, key + ' guard', guard, [functions.latch.LA,functions.cutout.LA], value)
+        state.transitions << [id:api.id(value),source:api.id(source),target:api.id(target),guard:guard]
+    }
+    transition('Initialize open', initial, states.Open, 'Always initialize disabled; no assumed authorization to energize.', 'Initialization')
+    transition('Permit energization', states.Open, states.Energized,
+        'All series contacts healthy/closed; GLV present; BMS IMD BSPD protective latch clear; applicable TS activation requirements independently satisfied. Detailed activation EV.12 design TBD.', 'Valid activation request')
+    transition('Any trip removes energy', states.Energized, states.Discharging,
+        'Any required series contact opens or any GLV shutdown occurs. BMS IMD BSPD causes set the protective latch; other causes do not silently reset an existing latch.', 'Series-current loss or protective trip')
+    transition('Discharge to latched safe state', states.Discharging, states['Latched protective trip'],
+        'TS reaches T.9.1.2 low voltage within 5 s and a BMS IMD BSPD protective trip is latched; remain disabled.', 'Residual voltage becomes low voltage with protective latch set')
+    transition('Discharge to ordinary open state', states.Discharging, states.Open,
+        'TS reaches T.9.1.2 low voltage within 5 s and no protective trip is latched.', 'Residual voltage becomes low voltage without protective latch')
+    transition('Protective fault while open', states.Open, states['Latched protective trip'],
+        'BMS IMD or BSPD trip detected while disabled or charger-connected; keep coil current and balancing off.', 'Independent protective trip')
+    transition('Only local manual reset releases latch', states['Latched protective trip'], states.Open,
+        'All protective faults cleared AND manual reset by a person directly at the vehicle, inaccessible to driver reactivation; no remote or automatic reset. This transition keeps TS disabled; it is not an energization transition.', 'Permitted local manual reset')
+    transition('Controls cannot bypass protective latch', states['Latched protective trip'], states['Latched protective trip'],
+        'TSMS or emergency-button toggles, driver controls, remote requests, GLV power cycling, or uncleared faults cannot release the protective latch.', 'Unpermitted reset or reactivation attempt')
+    state.state_machine = api.id(machine)
+
+    def oaSpecifications = [
+        [key:'emergency-stop', name:'Initiate emergency stop and observe disabled tractive energy', actor:'Driver'],
+        [key:'manual-reset', name:'Clear protective fault and reset locally with driver excluded', actor:'Team personnel'],
+        [key:'inspection', name:'Demonstrate every shutdown feature and fault effect', actor:'Team personnel']
+    ]
+    oaSpecifications.each { specification ->
+        def activity = identify(api.create('OperationalActivity', prefix + specification.name, domains.shutdown.OA), 'activity:' + specification.key)
+        api.allocate(activity, operationalActors[specification.actor])
+        activity.summary = 'Operational safety/inspection behavior; procedure and test evidence remain NOT_VERIFIED.'
+        if (specification.key == 'manual-reset') api.link(functions.reset.SA, activity, 'realization')
+        if (specification.key == 'inspection') api.link(functions.demonstrate.SA, activity, 'realization')
+        if (specification.key == 'emergency-stop') api.link(functions.switches.SA, activity, 'realization')
+    }
+
+    def derivedModule = req.createModule(api.layer('SA'), 'FSAE2027:SD:derived-module', 'EV.8 shutdown interpreted candidate obligations')
+    def folder = req.createFolder(derivedModule, 'FSAE2027:SD:derived-folder', 'Shutdown safety obligations')
+    obligations.each { group ->
+        def derived = req.create(folder, group.identifier, prefix + group.key, group.obligation)
+        req.setAttribute(derived, 'source_document_id', 'FSAE-2027-V1')
+        req.setAttribute(derived, 'source_sha256', '@@PINNED_SHA@@')
+        req.setAttribute(derived, 'slice_id', 'FSAE2027:shutdown-v1')
+        req.setAttribute(derived, 'interpretation_status', 'interpreted')
+        req.setAttribute(derived, 'coverage_status', 'allocated')
+        req.setAttribute(derived, 'verification_status', 'not_verified')
+        def represented = group.model_keys.collectMany { key ->
+            def value = functions[key]
+            [value.OA,value.SA,value.LA,value.PA,components[value.owner].logical,components[value.owner].behavior,components[value.owner].equipment].findAll { it != null }
+        }.unique()
+        def specificHardware = [
+            SERIES:contacts.collect { it.key }, 'COIL-CURRENT':contacts.collect { it.key } + ['IR-POSITIVE','IR-NEGATIVE','PRECHARGE-RELAY'],
+            'NORMALLY-OPEN':['BMS-CONTACT','IMD-CONTACT','BSPD-CONTACT'], INDEPENDENCE:['BMS-CONTACT','IMD-CONTACT','BSPD-CONTACT'],
+            'SHUTDOWN-EFFECTS':['IR-POSITIVE','IR-NEGATIVE','PRECHARGE-RELAY'],
+            'INTERLOCK-LOCATIONS':['INTERLOCKS'], 'INTERLOCK-OPEN':['INTERLOCKS'], 'INTERLOCK-ROUTING':['INTERLOCKS'],
+            'MASTERS-DIRECT':['GLVMS','TSMS'], 'GLV-MASTER':['GLVMS','ALL-GLV-LOADS'], 'TS-MASTER':['TSMS'],
+            'BUTTON-COUNT':['BUTTON-LEFT','BUTTON-RIGHT','BUTTON-COCKPIT'], 'BUTTON-MECHANISM':['BUTTON-LEFT','BUTTON-RIGHT','BUTTON-COCKPIT'],
+            'BUTTON-SIDES':['BUTTON-LEFT','BUTTON-RIGHT'], 'BUTTON-COCKPIT':['BUTTON-COCKPIT'], 'BUTTON-SYMBOL':['BUTTON-LEFT','BUTTON-RIGHT','BUTTON-COCKPIT']]
+        (specificHardware[group.key] ?: []).each { key -> if (!represented.contains(hardware[key])) represented.add(hardware[key]) }
+        represented.each { req.satisfy(it, derived) }
+        def verification = constraint('VERIFY-' + group.key, group.key + ' verification NOT_VERIFIED',
+            group.verification_obligation + '\nStatus: NOT_VERIFIED. No physical test or compliance conclusion is implied.\nOpen choices: ' + group.unresolved_decisions.join(' '), represented)
+        req.verify(derived, verification)
+        if (!group.unresolved_decisions.isEmpty()) {
+            constraint('TBD-' + group.key, group.key + ' implementation TBD', group.unresolved_decisions.join('\n'), represented)
+        }
+        group.source_clauses.each { source ->
+            def requirement = sourceRequirements[source.clause_id]
+            req.derive(derived, requirement)
+            represented.each { req.satisfy(it, requirement) }
+            req.verify(requirement, verification)
+            req.setAttribute(requirement, 'interpretation_status', 'interpreted')
+            req.setAttribute(requirement, 'coverage_status', 'allocated')
+            req.setAttribute(requirement, 'verification_status', 'not_verified')
+            req.setAttribute(requirement, 'model_element_ids', represented.collect { '"' + api.id(it) + '"' }.join(',').with { '[' + it + ']' })
+            req.setAttribute(requirement, 'verification_element_ids', '["' + api.id(verification) + '"]')
+            req.setAttribute(requirement, 'shutdown_slice_id', 'FSAE2027:shutdown-v1')
+            req.setAttribute(requirement, 'shutdown_source_review_status', source.source_review_status)
+            req.setAttribute(requirement, 'dependencies_review_status', group.unresolved_decisions.isEmpty() ? 'no_additional_choice_identified_in_this_group' : 'pending_TBD_choices_and_referenced_sources')
+            if (group.key in ['LITHIUM-COVERAGE','SHARED-SENSOR','INTERLOCK-ROUTING']) {
+                req.setAttribute(requirement, 'applicability', 'conditional')
+                req.setAttribute(requirement, 'applicability_reason', group.unresolved_decisions.join(' '))
+            }
+            state.source_allocations[source.clause_id] = [models:represented.collect { api.id(it) },verification:api.id(verification),status:'allocated',verification_status:'not_verified']
+        }
+        state.derived_requirements[group.key] = derived.ReqIFIdentifier
+        state.verification_constraints[group.key] = api.id(verification)
+    }
+    constraint('SEMANTIC-STRUCTURE-v2', 'semantic structure v2 APPLIED',
+        'GLV shutdown supply and operational shutdown interfaces have leaf owners. Physical verification NOT_VERIFIED.', [])
+    constraint('SEMANTIC-REPAIR-v2', 'semantic repair v2 APPLIED',
+        'Shutdown exchanges terminate at leaf functions and LA/PA exchanges and ports carry native realizations. Shared bootstrap aggregate allocation and boundary normalization is a separate prerequisite for final native validation. Physical verification NOT_VERIFIED.', [])
+    assert created.values().every { it.eResource() != null && it.eResource().getURIFragment(it) == api.id(it) }:
+        'Native serialized-reference IDs must agree before saving'
+    log.info('Added EV.8 candidate shutdown behavior, hardwired interfaces, latch states and native traces; all physical verification remains pending')
+}
+assert api.layer('SA').system.ownedSystemComponents.isEmpty() && api.layer('SA').system.ownedFeatures.isEmpty()
+return state

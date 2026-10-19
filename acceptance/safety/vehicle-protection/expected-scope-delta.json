@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source_sha256": "f71df5552e341dab1b58f1ff47212e7281953d66b9c41833de8347560913ed0e",
+  "status": "expected_after_all_native_slice_batches_and_structure_checks_pass",
+  "counting_basis": "Distinct exact source-record IDs assigned to candidate slices; not physical verification or full semantic review",
+  "numbered_rule_paragraphs": 3177,
+  "unnumbered_source_objects": 20,
+  "total_source_records": 3197,
+  "inventory_rule_nodes": 1825,
+  "rule_ids_with_direct_paragraphs": 1428,
+  "slices": {
+    "shutdown": {
+      "source_records": 122,
+      "source_rule_ids": 46,
+      "derived_obligations": 39
+    },
+    "driver-demand": {
+      "source_records": 57,
+      "source_rule_ids": 24,
+      "derived_obligations": 15
+    },
+    "vehicle-protection": {
+      "source_records": 409,
+      "source_rule_ids": 143,
+      "derived_obligations": 32
+    }
+  },
+  "previous_candidate_scope_records": 179,
+  "expected_candidate_scope_records": 588,
+  "additional_protection_records": 409,
+  "protection_overlap_with_previous": 0,
+  "source_records_outside_three_slice_scope": 2609,
+  "expected_selected_source_rule_ids": 213,
+  "expected_derived_obligations": 86,
+  "physical_verification_status": "not_verified",
+  "compliance_status": "not_established",
+  "interpretation_note": "Protection uses a scoped bounded interpretation and leaves global source statuses intact; conditional construction and referenced dependent rules still require design review."
+}
