@@ -36,7 +36,7 @@ Sensor ranges/calibration, mechanical engagement, hard-braking threshold, timer 
 From this directory:
 
 ```powershell
-python prepare_slice.py --private-source "<local-path>"
+python prepare_slice.py --private-source <private-cache>/private-source-paragraphs.json
 python -m unittest -v test_driver_demand.py
 ```
 

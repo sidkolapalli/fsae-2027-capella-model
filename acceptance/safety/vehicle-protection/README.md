@@ -29,7 +29,7 @@ Dependent work remains open, including composite material tests and structural e
 Regenerate only from the exact pinned metadata/private source:
 
 ```powershell
-python prepare_slice.py --private-source '<local-path>'
+python prepare_slice.py --private-source <private-cache>/private-source-paragraphs.json
 ```
 
 Generation verifies every selected source-text hash, exact rule ownership and the script-size limits. Secure Groovy parsing checks syntax; actual native execution, persistence and native validation are separate checks performed by the acceptance runner. No physical vehicle test has been performed by this slice.

@@ -10,7 +10,7 @@ import org.polarsys.capella.core.platform.sirius.ui.project.operations.ProjectSe
 // The native helper owns its workspace/session commands. Queue it after this script's transaction.
 def workspaceRoot = ResourcesPlugin.workspace.root
 def workspacePath = workspaceRoot.location.toString().replace('\\','/')
-assert workspacePath.equalsIgnoreCase('<local-path>')
+assert workspacePath.toLowerCase().endsWith('/capella-test-workspace')
 assert session.sessionResource.URI.toString().startsWith('platform:/resource/capella-ai-native-integration/') ||
     session.sessionResource.URI.toString().startsWith('platform:/resource/FSAE-2027-Electric-Arcadia/')
 def projectName = 'FSAE-2027-Electric-Arcadia'
