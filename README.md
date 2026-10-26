@@ -65,16 +65,28 @@ The safety slices paraphrase their obligations and trace them to the architectur
 
 ## Explore by layer
 
-Arcadia looks at the same car from five angles, called layers; pictures 1 to 5 show one layer each. The
-requirements come after them: they are not a layer, and they live under System Analysis. Each picture is the real
-Capella window. Pictures 1 to 5 show the Project Explorer on the left and part of one diagram at 100% on the right;
-picture 6 shows the Project Explorer alone. Select a picture for full size.
-
-To open a diagram yourself, expand **Representations per category** in the Project Explorer and double-click the
-diagram name given under the picture.
+Arcadia looks at the same car from five angles, called layers. Below, each layer shows its complete diagram,
+exported from the model: select a diagram to open it full size, where every label is readable. To open a diagram
+in Capella yourself, expand **Representations per category** in the Project Explorer and double-click the diagram
+name given under the picture.
 
 Every element name starts with `FSAE2027:`. In Operational Analysis a topic tag follows, such as `brakes` or
 `process`. The tag groups the activities by rulebook topic; it is not a chosen part.
+
+### What you will see in Capella
+
+The Project Explorer on the left holds the model tree, one folder per layer; the diagram editor is on the right.
+Here the Logical Architecture is open:
+
+[![Capella with the Logical Architecture expanded in the Project Explorer and its subsystems diagram open](docs/screenshots/capella-window-logical.png)](docs/screenshots/capella-window-logical.png)
+
+And here System Analysis is expanded. Under it the Project Explorer lists the four requirement modules, the eight
+open `DEC-*` design decisions and the tracking notes that follow them: `NOT_VERIFIED` means no evidence yet, `TBD`
+a detail not chosen yet, and `INVARIANT` a property the design must always keep
+([docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.md#tracking-constraints) lists them all). The diagram is the shutdown
+protection flows:
+
+[![Capella with System Analysis expanded: the requirement modules, the open decisions and the shutdown protection diagram](docs/screenshots/capella-window-system.png)](docs/screenshots/capella-window-system.png)
 
 ### 1. Operational Analysis: what people need to do
 
@@ -83,21 +95,17 @@ presents the car at technical inspection) and "Decelerate and stop the vehicle",
 between them. This layer answers: what must the driver, the team and the officials get done, before anyone
 picks a design?
 
-[![Operational Analysis: activities and interactions in Capella](docs/screenshots/1-operational-analysis.png)](docs/screenshots/1-operational-analysis.png)
+[![Operational Analysis: activities and interactions](docs/diagrams/oa-activities-and-interactions.png)](docs/diagrams/oa-activities-and-interactions.png)
 
 Diagram: `FSAE 2027 OA activities and interactions (candidate)`
 
 ### 2. System Analysis: what the car must do
 
 Here the car is treated as a single whole, without its insides. The green boxes are the jobs it must do for
-shutdown protection, such as "Measure every required cell-group voltage and apply datasheet limits"; the Project
-Explorer also lists the four requirement modules and the eight open `DEC-*` decisions. The items below the
-decisions are tracking notes, not errors: `NOT_VERIFIED` means no evidence yet, `TBD` means a detail not chosen yet,
-and `INVARIANT` means a property the design must always keep.
-[docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.md#tracking-constraints) lists them all. This layer answers: what must
-the car do to meet the rules, and what is still undecided?
+shutdown protection, such as "Measure every required cell-group voltage and apply datasheet limits". This layer
+answers: what must the car do to meet the rules, and what is still undecided?
 
-[![System Analysis: shutdown protection detailed flows in Capella](docs/screenshots/2-system-analysis.png)](docs/screenshots/2-system-analysis.png)
+[![System Analysis: shutdown protection detailed flows](docs/diagrams/sa-shutdown-protection-detailed-flows.png)](docs/diagrams/sa-shutdown-protection-detailed-flows.png)
 
 Diagram: `FSAE 2027 SA shutdown protection detailed flows (candidate)`
 
@@ -107,7 +115,7 @@ The blue boxes are subsystems, such as energy storage, brakes, driver demand and
 yet; the lines are what they pass to each other. This layer answers: which subsystem owns which job, and what must
 each sub-team agree on with the others?
 
-[![Logical Architecture: logical subsystems in Capella](docs/screenshots/3-logical-architecture.png)](docs/screenshots/3-logical-architecture.png)
+[![Logical Architecture: logical subsystems](docs/diagrams/la-logical-subsystems.png)](docs/diagrams/la-logical-subsystems.png)
 
 Diagram: `FSAE 2027 LA logical subsystems (candidate)`
 
@@ -117,7 +125,7 @@ The yellow boxes are equipment, such as the shutdown and tractive-distribution e
 are the shutdown current paths between them. The blue boxes are the behavior that runs on that equipment. This
 layer answers: what hardware carries out each function, and how is it connected?
 
-[![Physical Architecture: equipment and deployed behavior in Capella](docs/screenshots/4-physical-architecture.png)](docs/screenshots/4-physical-architecture.png)
+[![Physical Architecture: equipment and deployed behavior](docs/diagrams/pa-equipment-and-deployed-behavior.png)](docs/diagrams/pa-equipment-and-deployed-behavior.png)
 
 Diagram: `FSAE 2027 PA equipment and deployed behavior (candidate)`
 
@@ -127,17 +135,18 @@ EPBS stands for end-product breakdown structure. Each frame is a configuration i
 shutdown subsystem, holding its behavior and its equipment. This layer answers: which pieces will the team build,
 buy and track as deliverables?
 
-[![EPBS: subsystem configuration items in Capella](docs/screenshots/5-epbs.png)](docs/screenshots/5-epbs.png)
+[![EPBS: subsystem configuration items](docs/diagrams/epbs-subsystem-configuration-items.png)](docs/diagrams/epbs-subsystem-configuration-items.png)
 
 Diagram: `FSAE 2027 EPBS subsystem configuration items (candidate)`
 
 ### Requirements: the rules the car must meet
 
-This picture has no diagram. The Project Explorer shows the EV.8 shutdown module under System Analysis, expanded
-to its paraphrased obligations, such as "Install the three required shutdown buttons: left side, right side and
-cockpit." The model holds rule identifiers, page numbers and headings, never the rule text, so keep the official rulebook open next to it.
+Requirements are not a layer: they live under System Analysis, in the four modules shown in the second Capella
+picture above. Expand the EV.8 shutdown module to its paraphrased obligations, such as "Install the three required
+shutdown buttons: left side, right side and cockpit." The model holds rule identifiers, page numbers and headings,
+never the rule text, so keep the official rulebook open next to it.
 
-[![Requirements: the EV.8 shutdown obligations in the Project Explorer](docs/screenshots/6-requirements.png)](docs/screenshots/6-requirements.png)
+All twelve diagrams, with what each shows, are in [docs/DIAGRAMS.md](docs/DIAGRAMS.md).
 
 ### Learn it faster: ask an AI agent
 

@@ -216,7 +216,7 @@ that matters against the model:
 The screenshot below shows the Project Explorer with the requirement modules and the open `DEC-*` decisions under
 System Analysis, and the shutdown protection diagram open on the right.
 
-[![The Project Explorer with the System Analysis folder open, next to the SA shutdown protection detailed flows diagram](screenshots/2-system-analysis.png)](screenshots/2-system-analysis.png)
+[![The Project Explorer with the System Analysis folder open, next to the SA shutdown protection detailed flows diagram](screenshots/capella-window-system.png)](screenshots/capella-window-system.png)
 
 If the agent names an element you cannot find, treat its answer as wrong until you find the element.
 
