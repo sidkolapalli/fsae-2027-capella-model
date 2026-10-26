@@ -17,8 +17,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Model archive checksum
-        run: echo "66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3  model/FSAE-2027-Electric-Arcadia.zip" | sha256sum -c
+      - name: Model checksums
+        run: |
+          cd model
+          sha256sum -c SHA256SUMS
+          # every model file is listed, so an added file cannot slip past the sums
+          diff <(find FSAE-2027-Electric-Arcadia -type f | sort) <(cut -c67- SHA256SUMS | sort)
       - name: Rule inventory and slices
         run: |
           for d in acceptance/rules acceptance/safety/shutdown acceptance/safety/driver-demand; do

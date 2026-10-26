@@ -1,7 +1,25 @@
 # FSAE 2027 acceptance project
 
 The scripts that built the benchmark model in [`../model`](../model) from the public Formula SAE 2027
-rulebook. Run them in a disposable Capella project through the dev server's `/execute`, in numeric order:
+rulebook. Run them in a disposable Capella project through the dev server's `/execute`.
+
+Before you start:
+
+- the Capella workspace folder must be named `capella-test-workspace`, and a session must be open on a project
+  named `capella-ai-native-integration` or `FSAE-2027-Electric-Arcadia` (`00` checks the name);
+- start the dev server (toolkit [`docs/PLUGIN.md`](https://github.com/sidkolapalli/capella-agent-toolkit/blob/develop/docs/PLUGIN.md#local-dev-server), "Local dev server");
+- keep the rulebook PDF in a private cache outside the repository; the rule import batches are generated from it
+  (see [`rules/README.md`](rules/README.md)).
+
+Full build order:
+
+1. `00`, then activate Requirements Viewpoint in the new project, then `10`–`11`;
+2. the rule import batches (64, from `rules/prepare_batches.py`);
+3. the safety slices in this order, each as its README says: [`safety/shutdown`](safety/shutdown),
+   [`safety/driver-demand`](safety/driver-demand), [`safety/vehicle-protection`](safety/vehicle-protection).
+   The shutdown and driver-demand `35`/`36` repair scripts are only for a slice created by an older version.
+4. `12`–`13`, `20`–`21`, `30`–`34`;
+5. save, close and reopen the model, then `90`–`91`.
 
 | Scripts | Step |
 |---|---|

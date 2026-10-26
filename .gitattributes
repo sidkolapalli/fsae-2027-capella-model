@@ -1,0 +1,2 @@
+# Capella model files are stored byte for byte: their SHA-256 sums in model/SHA256SUMS must hold on every OS.
+model/** -text
