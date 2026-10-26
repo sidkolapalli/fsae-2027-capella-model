@@ -25,7 +25,7 @@ Capella 7.0 project with Requirements Viewpoint 0.14.0, with the prerequisites a
 4. update the `.capella` SHA-256 and the version statement in the README's [Versions](README.md#versions) section.
 
 A model change changes the benchmark. Say so in the pull request: the release that ships it gets a new version
-tag, and experiments stay tied to the tag they used. The model files are stored byte for byte (see
+tag, and benchmark results stay tied to the tag they used. The model files are stored byte for byte (see
 `.gitattributes`), so their line endings never change between operating systems.
 
 Never add rulebook text. Requirements carry the rule identifier, page, heading and a hash of the text; obligations
