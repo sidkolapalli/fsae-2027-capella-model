@@ -4,7 +4,7 @@ import org.eclipse.core.runtime.NullProgressMonitor
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection
 import org.eclipse.ui.PlatformUI
 import org.eclipse.ui.ide.IDE
-import org.polarsys.capella.ai.session.SessionSafeguards
+import com.sidkolapalli.capella.ai.session.SessionSafeguards
 import org.polarsys.capella.core.platform.sirius.ui.project.operations.ProjectSessionCreationHelper
 
 // The native helper owns its workspace/session commands. Queue it after this script's transaction.
