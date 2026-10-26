@@ -1,0 +1,18 @@
+name: Model issue
+description: A wrong or missing element, trace, requirement or rule interpretation.
+labels: [model]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Perspective and element (name or UUID), or the rule identifier, e.g. EV.5.2.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: What the model says, what it should say, and why. Paraphrase the rule; do not paste rulebook text.
+    validations:
+      required: true
