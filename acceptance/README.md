@@ -1,6 +1,6 @@
 # FSAE 2027 acceptance project
 
-The scripts that built the benchmark model in [`../fsae-2027`](../fsae-2027) from the public Formula SAE 2027
+The scripts that built the benchmark model in [`../model`](../model) from the public Formula SAE 2027
 rulebook. Run them in a disposable Capella project through the dev server's `/execute`, in numeric order:
 
 | Scripts | Step |

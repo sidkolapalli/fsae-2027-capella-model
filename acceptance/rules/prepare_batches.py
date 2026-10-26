@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SOURCE_MODULE_ID = "FSAE-2027-V1:source-module"
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def read_json(path):
