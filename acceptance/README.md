@@ -1,3 +1,21 @@
+# FSAE 2027 acceptance project
+
+The scripts that built the benchmark model in [`../fsae-2027`](../fsae-2027) from the public Formula SAE 2027
+rulebook. Run them in a disposable Capella project through the dev server's `/execute`, in numeric order:
+
+| Scripts | Step |
+|---|---|
+| `00`–`13` | Create the project, build the candidate architecture, repair traces, normalize and realize interfaces |
+| `20`–`21` | Verify the architecture and export the source inventory |
+| `30`–`34` | Overview and safety diagrams, their checks and layout |
+| `90`–`91` | Verify persistence after save and reopen; export native validation |
+
+[`rules/`](rules) holds the pinned rule inventory and its import batches; [`safety/`](safety) holds the three
+detailed safety slices, each with its own README. The rest of this page says what the model does and does not
+establish.
+
+## What the model establishes
+
 The acceptance project uses the official 2027 Formula SAE V1 source inventory in `rules/`. It retains numbered clauses and unnumbered source objects, including clauses that do not apply to the chosen driver-operated electric baseline. A structural bootstrap and a requirement import are preparation steps. They do not establish complete rule coverage or a compliant physical car.
 
 Native requirements use [Capella Requirements Viewpoint 0.14.0 for Capella 7](https://github.com/eclipse-capella/capella-requirements-vp/releases/tag/v0.14.0). A module is an architecture extension. Source records have stable ReqIF identifiers and typed metadata. Selected candidate obligations have native satisfaction, verification and derivation relations; importing the remaining records does not establish those mappings. Activation must complete before a semantic script runs. `api.requirements().importRequirements(parent, records)` imports explicit ledger records atomically; it never retrieves or interprets a book itself.
