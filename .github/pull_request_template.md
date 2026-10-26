@@ -7,4 +7,4 @@
 - [ ] Changed the scripts in `acceptance/`, not only the model
 - [ ] Verifiers and save/reopen check (`90`) pass; native validation compared with the previous export (`91`)
 - [ ] No rulebook text added
-- [ ] New model archive: SHA-256 updated in the README and the CI checksum
+- [ ] Model files changed: `model/SHA256SUMS` regenerated, README Versions section updated, and the change noted for the next version tag

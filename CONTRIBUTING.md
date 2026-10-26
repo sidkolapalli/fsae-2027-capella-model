@@ -8,14 +8,25 @@ against the completion gates in [`acceptance/README.md`](acceptance/README.md).
 
 The model in `model/` is built by the scripts in `acceptance/`; change the scripts, not only the model. Run them
 through the [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) dev server in a disposable
-Capella 7.0 project with Requirements Viewpoint 0.14.0, then:
+Capella 7.0 project with Requirements Viewpoint 0.14.0, with the prerequisites and in the order that
+[`acceptance/README.md`](acceptance/README.md) gives, then:
 
-1. run the verifiers (`20`, `31`, `33`, the slice verifiers and `90` after save and reopen);
+1. run the verifiers (`20`, `31`, `33`, the slice verifiers `safety/shutdown/40-verify-shutdown.groovy`,
+   `safety/driver-demand/40-verify-driver-demand.groovy` and `safety/vehicle-protection/40-verify-vehicle-protection.groovy`,
+   and `90` after save and reopen);
 2. export native validation with `91` and compare it with the previous export;
-3. zip the project as `model/FSAE-2027-Electric-Arcadia.zip` and update its SHA-256 in the README.
+3. close Capella, replace `model/FSAE-2027-Electric-Arcadia/` with the saved `FSAE-2027-Electric-Arcadia` folder
+   from the Capella workspace, and update the checksums:
 
-A new model archive changes the benchmark. Say so in the pull request: experiments run on the old archive stay
-tied to its hash.
+   ```bash
+   cd model && find FSAE-2027-Electric-Arcadia -type f | sort | xargs sha256sum --text > SHA256SUMS
+   ```
+
+4. update the `.capella` SHA-256 and the version statement in the README's [Versions](README.md#versions) section.
+
+A model change changes the benchmark. Say so in the pull request: the release that ships it gets a new version
+tag, and experiments stay tied to the tag they used. The model files are stored byte for byte (see
+`.gitattributes`), so their line endings never change between operating systems.
 
 Never add rulebook text. Requirements carry the rule identifier, page, heading and a hash of the text; obligations
 are paraphrased. The Python tests in `acceptance/` check the inventory and slices:
