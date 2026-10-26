@@ -2,7 +2,7 @@
 
 Corrections and extensions to the model are welcome: a wrong trace, a rule read the wrong way, a missing
 interface, a new detailed slice. Open an issue first for anything larger than a fix, so the change can be planned
-against the completion gates in [`acceptance/README.md`](acceptance/README.md).
+against the completion gates in [`acceptance/model-schema.json`](acceptance/model-schema.json).
 
 ## Changing the model
 

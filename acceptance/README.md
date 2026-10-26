@@ -21,6 +21,10 @@ Full build order:
 4. `12`–`13`, `20`–`21`, `30`–`34`;
 5. save, close and reopen the model, then `90`–`91`.
 
+`34` applies the diagram layout of v1.0.0 and v1.1.0. The v1.2.0 layout was applied afterwards with the toolkit's
+auto-layout, and no script here reproduces it; [`../docs/DIAGRAMS.md`](../docs/DIAGRAMS.md#about-the-layout-and-the-images)
+explains.
+
 | Scripts | Step |
 |---|---|
 | `00`–`13` | Create the project, build the candidate architecture, repair traces, normalize and realize interfaces |
