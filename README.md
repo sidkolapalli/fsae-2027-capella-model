@@ -50,8 +50,8 @@ The terms in this table are explained in [docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.
 
 | | |
 |---|---|
-| Elements | 86,658 semantic elements across operational analysis, system analysis, logical, physical and end-product breakdown (EPBS) |
-| Requirements | 3,283 in 4 modules: 3,197 source records from the Formula SAE Rules 2027 V1.0 (numbered paragraphs and unnumbered source objects), and 86 candidate obligations |
+| Elements | 100,602 semantic elements across operational analysis, system analysis, logical, physical and end-product breakdown (EPBS) |
+| Requirements | 3,871 in 5 modules: 3,197 source records from the Formula SAE Rules 2027 V1.0 (numbered paragraphs and unnumbered source objects), 86 candidate obligations and 588 competition-submission items in 80 folders |
 | Functions | 72 operational activities; 93 system, 93 logical and 93 physical functions |
 | Components | 5 operational entities; 5 system, 48 logical and 122 physical components and actors; 61 configuration items |
 | Exchanges | 269 functional exchanges, 74 component exchanges, 19 physical links |
@@ -59,6 +59,7 @@ The terms in this table are explained in [docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.
 | Diagrams | 12, laid out and exported to [`docs/diagrams`](docs/diagrams) |
 | Safety slices | 3: shutdown circuit (EV.8), driver demand and BSPD, vehicle protection and mechanical braking |
 | Open decisions | 8: chassis, cells, drive, brakes, charger, thermal, control, pressure |
+| Submissions | 7 checklists (SES, IAD, ESF, design documents, cost report, presentation, general rules) with readiness pages in [`docs/submissions`](docs/submissions) |
 
 Each source requirement carries its rule identifier, page, heading and a hash of its text, but not the text itself.
 The safety slices paraphrase their obligations and trace them to the architecture.
@@ -197,7 +198,8 @@ the benchmark, so the release that ships it gets a new version tag.
 The scripts in [`acceptance/`](acceptance) built the model in a disposable Capella project through the Capella
 Agent Toolkit plug-in's dev server, in the order [`acceptance/README.md`](acceptance/README.md) gives.
 [`acceptance/rules`](acceptance/rules) pins the rule inventory and [`acceptance/safety`](acceptance/safety) holds
-the three slices, each with its own README. The v1.2.0 diagram layout was applied afterwards and no script
+the three slices, each with its own README. [`acceptance/submissions`](acceptance/submissions) adds the
+competition-submission layer on top of them. The v1.2.0 diagram layout was applied afterwards and no script
 reproduces it; [docs/DIAGRAMS.md](docs/DIAGRAMS.md#about-the-layout-and-the-images) explains.
 
 ## Using it as a benchmark

@@ -5,7 +5,7 @@ Formula SAE students, including those who are new to Capella and to MBSE (model-
 
 ## Why use an agent
 
-The model has about 86,000 elements: 3,283 requirements, more than 300 functions, about 180 components and actors, and
+The model has about 100,000 elements: 3,871 requirements, more than 300 functions, about 180 components and actors, and
 12 diagrams. Clicking through the Project Explorer to learn all of that takes a long time. An agent can search
 the model for you, read an element's properties and follow its links, then explain what it found in plain
 language. You still check the answer in Capella yourself. This page shows how.
@@ -182,7 +182,7 @@ Vehicle protection and mechanical braking (`VP`):
 
 - "Run the quick method checks on LA and explain each finding in plain language."
 - "Run Capella's full validation and group the warnings by rule. Which rules give the most warnings?"
-  Full validation of about 86,000 elements is slow. The recorded baseline is zero errors and 517 warnings
+  Full validation of about 100,000 elements is slow. The recorded baseline is zero errors and 517 warnings
   ([GETTING-STARTED.md](GETTING-STARTED.md#7-run-validation)).
 - "Pick one validation warning and show me the element it is about. Is it a real problem or a known gap?"
 
