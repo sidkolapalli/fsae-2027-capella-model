@@ -53,7 +53,7 @@ owns the rulebook copyright; this project is not affiliated with SAE Internation
 
 ## Structure by perspective
 
-The model has about 86,000 semantic elements. [`model-schema.json`](../acceptance/model-schema.json) lists 16
+The model has about 100,000 semantic elements. [`model-schema.json`](../acceptance/model-schema.json) lists 16
 candidate domains and 11 candidate interfaces. The bootstrap creates the 15 vehicle domains (for example chassis and
 crash protection, braking, driver demand, energy storage, shutdown, charging, thermal) and the 11 interfaces between
 them; the 16th, competition inspection and work practices, becomes the `FSAE2027:process` activities in OA.
@@ -61,7 +61,7 @@ them; the 16th, competition inspection and work practices, becomes the `FSAE2027
 | Perspective | Top-level folders | Main elements |
 |---|---|---|
 | Operational Analysis (OA) | Operational Activities, Operational Capabilities, Interfaces, Data, Roles, Operational Entities | 72 operational activities, 5 entities, 15 operational capabilities, 47 interactions |
-| System Analysis (SA) | four requirement modules, Requirements types, System Functions, Capabilities, Interfaces, Data, Structure, Missions, Operational Analysis realization, the decision and tracking constraints | 93 system functions, 5 system components (the vehicle and actors), 15 capabilities, 74 functional exchanges, 1 state machine, 3,283 requirements, 139 constraints |
+| System Analysis (SA) | five requirement modules, Requirements types, System Functions, Capabilities, Interfaces, Data, Structure, Missions, Operational Analysis realization, the decision and tracking constraints | 93 system functions, 5 system components (the vehicle and actors), 15 capabilities, 74 functional exchanges, 1 state machine, 3,871 requirements, 139 constraints |
 | Logical Architecture (LA) | Logical Functions, Capabilities, Interfaces, Data, Structure, System Analysis realization | 93 logical functions, 48 logical components, 74 functional exchanges, 37 component exchanges, 15 capability realizations, 5 state machines, 24 constraints |
 | Physical Architecture (PA) | Physical Functions, Capabilities, Interfaces, Data, Structure, Logical Architecture realization | 93 physical functions, 122 physical components (behavior and node), 74 functional exchanges, 37 component exchanges, 19 physical links, 43 deployment links, 15 capability realizations, 1 state machine, 3 constraints |
 | EPBS | Capabilities, Structure, Physical Architecture realization | 61 configuration items, 104 physical artifact realizations to PA components |
@@ -77,7 +77,7 @@ The model has 12 diagrams. [DIAGRAMS.md](DIAGRAMS.md) lists them by perspective 
 
 ## Requirement modules
 
-Requirements live in four Requirements Viewpoint modules under System Analysis.
+Requirements live in five Requirements Viewpoint modules under System Analysis.
 
 | Module identifier | Name | Requirements |
 |---|---|---|
@@ -85,10 +85,13 @@ Requirements live in four Requirements Viewpoint modules under System Analysis.
 | `FSAE2027:SD:derived-module` | EV.8 shutdown interpreted candidate obligations | 39 |
 | `FSAE2027:DD:module` | Driver demand and BSPD derived candidate obligations | 15 |
 | `FSAE2027:VP:derived-module` | Vehicle protection and mechanical braking candidate obligations | 32 |
+| `FSAE2027:SUB:module` | Formula SAE 2027 competition submissions (candidate readiness) | 588 |
 
 The source module holds one requirement per source record. Its title is the rule identifier and heading; its text
 is empty. Three source records (EV.3.3.1 to EV.3.3.3) carry a reviewed paraphrase; the rest have no text yet. The
-three slice modules hold 86 derived obligations, written as paraphrases.
+three slice modules hold 86 derived obligations, written as paraphrases. The submissions module holds one item per
+data item a team must hand in, in 7 submission folders and 73 section folders; [`submissions/`](submissions)
+shows each one's readiness and [`acceptance/submissions`](../acceptance/submissions/README.md) explains the layer.
 
 ## Requirement attributes
 
