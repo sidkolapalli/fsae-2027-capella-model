@@ -2,7 +2,8 @@
 
 Corrections and extensions to the model are welcome: a wrong trace, a rule read the wrong way, a missing
 interface, a new detailed slice. Open an issue first for anything larger than a fix, so the change can be planned
-against the completion gates in [`acceptance/model-schema.json`](acceptance/model-schema.json).
+against the completion gates in [`acceptance/model-schema.json`](acceptance/model-schema.json). Everyone taking part
+follows the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Changing the model
 
