@@ -120,7 +120,7 @@ You do not need to activate the viewpoint in this model. It is already reference
 | You want to | Use |
 |---|---|
 | Explore the model or start from it | The latest release on the [releases page](https://github.com/sidkolapalli/fsae-2027-capella-model/releases). Later releases lay out the diagrams; the semantic `.capella` file is the same as in v1.1.0. |
-| Repeat the Capella Agent Toolkit experiments exactly | `v1.0.0` (the version every experiment used, stored as `model/FSAE-2027-Electric-Arcadia.zip`) or `v1.1.0` (the same model as plain files). |
+| Reproduce benchmark results recorded against the original version | `v1.0.0` (stored as `model/FSAE-2027-Electric-Arcadia.zip`) or `v1.1.0` (the same model as plain files). |
 
 ### Download it
 

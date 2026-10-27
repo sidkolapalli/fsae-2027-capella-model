@@ -27,8 +27,8 @@ architecture across all five Arcadia perspectives, and the open decisions left t
 
 A [Capella](https://eclipse.dev/capella/) 7.0 model of a Formula SAE 2027 electric car, built with the Arcadia
 method (a way to describe a system in layers, from what its users need down to its parts) from the public 2027
-rulebook, and the scripts that built it. It is the benchmark model of the
-[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) experiments.
+rulebook, and the scripts that built it. It is also the benchmark model of the
+[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit)'s evaluation harness.
 
 It is meant as a reference platform and a head start. A Formula SAE team can use it as a guideline that mimics a
 real vehicle development platform: rules turned into requirements, an architecture across all perspectives,
@@ -167,7 +167,7 @@ questions to ask.
    dependency update sites added first, which the page lists.
 2. Clone this repository, or download it from the
    [releases page](https://github.com/sidkolapalli/fsae-2027-capella-model/releases). The latest release suits
-   exploring the model; see [Versions](#versions) to repeat the experiments.
+   exploring the model; [Versions](#versions) lists the earlier releases.
 3. Import [`model/FSAE-2027-Electric-Arcadia`](model/FSAE-2027-Electric-Arcadia) into your workspace as an
    existing project, with **File > Import...** and the existing-project import under **General**. Choose to copy
    the project into the workspace. Otherwise Capella saves your edits into the clone's model files, which CI
@@ -181,13 +181,13 @@ questions to ask.
 
 | Tag | What it holds | Use it for |
 |---|---|---|
-| [`v1.0.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.0.0) | The project as `model/FSAE-2027-Electric-Arcadia.zip` (SHA-256 `66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3`) | Every Capella Agent Toolkit experiment so far |
-| [`v1.1.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.1.0) | The same files as plain project files, byte-identical to the archive contents | Repeating the experiments without unzipping |
+| [`v1.0.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.0.0) | The project as `model/FSAE-2027-Electric-Arcadia.zip` (SHA-256 `66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3`) | The original benchmark version |
+| [`v1.1.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.1.0) | The same files as plain project files, byte-identical to the archive contents | The original benchmark version, without unzipping |
 | `v1.2.0` | The same semantic model, with all 12 diagrams laid out | Reading and extending the model |
 
 The semantic model is the same in all three: the `.capella` file's SHA-256 is
 `2849ad9b229a025ea6b8958292971ee07d5ef8c3987202eb340e5f655fb00c2d`. In `v1.2.0` only the diagram layout changed,
-so to repeat the experiments exactly, use `v1.1.0` or `v1.0.0`.
+so to reproduce results recorded against the original benchmark version, use `v1.1.0` or `v1.0.0`.
 
 [`model/SHA256SUMS`](model/SHA256SUMS) records every model file, and CI checks it. A change to the model changes
 the benchmark, so the release that ships it gets a new version tag.
@@ -207,7 +207,7 @@ The task sets, harness and grader live in the toolkit's
 
 1. Clone this repository next to the toolkit and keep the folder name `fsae-2027-capella-model`. Or set
    `EVAL_MODEL` to its `model/FSAE-2027-Electric-Arcadia` folder.
-2. To repeat the published experiments exactly, check out `v1.1.0` (`git checkout v1.1.0`). The default branch
+2. To reproduce results recorded against the original benchmark version, check out `v1.1.0` (`git checkout v1.1.0`). The default branch
    has the re-laid-out diagrams of `v1.2.0`.
 
 ## Licensing
