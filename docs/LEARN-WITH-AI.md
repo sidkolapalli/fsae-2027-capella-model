@@ -5,7 +5,7 @@ Formula SAE students, including those who are new to Capella and to MBSE (model-
 
 ## Why use an agent
 
-The model has about 86,000 elements: 3,283 requirements, more than 300 functions, about 180 components and actors, and
+The model has about 100,000 elements: 3,871 requirements, more than 300 functions, about 180 components and actors, and
 12 diagrams. Clicking through the Project Explorer to learn all of that takes a long time. An agent can search
 the model for you, read an element's properties and follow its links, then explain what it found in plain
 language. You still check the answer in Capella yourself. This page shows how.
@@ -25,8 +25,7 @@ Two things to keep in mind from the start:
 | An AI agent that supports MCP, such as Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI | The toolkit [install guide](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md), one section per agent |
 | An account for that agent. Most need a sign-in, and many need a subscription or an API key; some have free or student tiers | The agent's own website. Check this before you start |
 
-The toolkit repository is private for now. The toolkit links on this page work once it is public. For now the
-plug-in is built from source, which needs a Java 17 JDK, Maven and Python 3, as the quick start describes.
+The plug-in is built from source, which needs a Java 17 JDK, Maven and Python 3, as the quick start describes.
 
 The plug-in runs a small server inside Capella. Your agent talks to that server with MCP (Model Context
 Protocol), and the server reads the model that is open in Capella. Nothing leaves your computer except what your
@@ -182,7 +181,7 @@ Vehicle protection and mechanical braking (`VP`):
 
 - "Run the quick method checks on LA and explain each finding in plain language."
 - "Run Capella's full validation and group the warnings by rule. Which rules give the most warnings?"
-  Full validation of about 86,000 elements is slow. The recorded baseline is zero errors and 517 warnings
+  Full validation of about 100,000 elements is slow. The recorded baseline is zero errors and 517 warnings
   ([GETTING-STARTED.md](GETTING-STARTED.md#7-run-validation)).
 - "Pick one validation warning and show me the element it is about. Is it a real problem or a known gap?"
 

@@ -25,6 +25,6 @@ jobs:
           diff <(find FSAE-2027-Electric-Arcadia -type f | sort) <(cut -c67- SHA256SUMS | sort)
       - name: Rule inventory and slices
         run: |
-          for d in acceptance/rules acceptance/safety/shutdown acceptance/safety/driver-demand; do
+          for d in acceptance/rules acceptance/safety/shutdown acceptance/safety/driver-demand acceptance/submissions; do
             (cd "$d" && python -m unittest -v)
           done

@@ -27,8 +27,8 @@ architecture across all five Arcadia perspectives, and the open decisions left t
 
 A [Capella](https://eclipse.dev/capella/) 7.0 model of a Formula SAE 2027 electric car, built with the Arcadia
 method (a way to describe a system in layers, from what its users need down to its parts) from the public 2027
-rulebook, and the scripts that built it. It is the benchmark model of the
-[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) experiments.
+rulebook, and the scripts that built it. It is also the benchmark model of the
+[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit)'s evaluation harness.
 
 It is meant as a reference platform and a head start. A Formula SAE team can use it as a guideline that mimics a
 real vehicle development platform: rules turned into requirements, an architecture across all perspectives,
@@ -50,8 +50,8 @@ The terms in this table are explained in [docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.
 
 | | |
 |---|---|
-| Elements | 86,658 semantic elements across operational analysis, system analysis, logical, physical and end-product breakdown (EPBS) |
-| Requirements | 3,283 in 4 modules: 3,197 source records from the Formula SAE Rules 2027 V1.0 (numbered paragraphs and unnumbered source objects), and 86 candidate obligations |
+| Elements | 100,602 semantic elements across operational analysis, system analysis, logical, physical and end-product breakdown (EPBS) |
+| Requirements | 3,871 in 5 modules: 3,197 source records from the Formula SAE Rules 2027 V1.0 (numbered paragraphs and unnumbered source objects), 86 candidate obligations and 588 competition-submission items in 80 folders |
 | Functions | 72 operational activities; 93 system, 93 logical and 93 physical functions |
 | Components | 5 operational entities; 5 system, 48 logical and 122 physical components and actors; 61 configuration items |
 | Exchanges | 269 functional exchanges, 74 component exchanges, 19 physical links |
@@ -59,6 +59,7 @@ The terms in this table are explained in [docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.
 | Diagrams | 12, laid out and exported to [`docs/diagrams`](docs/diagrams) |
 | Safety slices | 3: shutdown circuit (EV.8), driver demand and BSPD, vehicle protection and mechanical braking |
 | Open decisions | 8: chassis, cells, drive, brakes, charger, thermal, control, pressure |
+| Submissions | 7 checklists (SES, IAD, ESF, design documents, cost report, presentation, general rules) with readiness pages in [`docs/submissions`](docs/submissions) |
 
 Each source requirement carries its rule identifier, page, heading and a hash of its text, but not the text itself.
 The safety slices paraphrase their obligations and trace them to the architecture.
@@ -154,10 +155,9 @@ With the [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-t
 Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI can read the model open in Capella and answer questions
 about it. It changes nothing unless you approve the exact edit in Capella. The agent can be wrong: check each answer
 against the model. To find an element name it cites, type the name into the filter box at the top of the Project
-Explorer. The toolkit repository is private for now. Once it is public, its
+Explorer. The toolkit's
 [install guide](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md) shows how to
-connect each agent. [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup steps and
-questions to ask.
+connect each agent, and [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup steps and questions to ask.
 
 ## Open the model
 
@@ -167,7 +167,7 @@ questions to ask.
    dependency update sites added first, which the page lists.
 2. Clone this repository, or download it from the
    [releases page](https://github.com/sidkolapalli/fsae-2027-capella-model/releases). The latest release suits
-   exploring the model; see [Versions](#versions) to repeat the experiments.
+   exploring the model; [Versions](#versions) lists the earlier releases.
 3. Import [`model/FSAE-2027-Electric-Arcadia`](model/FSAE-2027-Electric-Arcadia) into your workspace as an
    existing project, with **File > Import...** and the existing-project import under **General**. Choose to copy
    the project into the workspace. Otherwise Capella saves your edits into the clone's model files, which CI
@@ -181,13 +181,13 @@ questions to ask.
 
 | Tag | What it holds | Use it for |
 |---|---|---|
-| [`v1.0.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.0.0) | The project as `model/FSAE-2027-Electric-Arcadia.zip` (SHA-256 `66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3`) | Every Capella Agent Toolkit experiment so far |
-| [`v1.1.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.1.0) | The same files as plain project files, byte-identical to the archive contents | Repeating the experiments without unzipping |
+| [`v1.0.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.0.0) | The project as `model/FSAE-2027-Electric-Arcadia.zip` (SHA-256 `66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3`) | The original benchmark version |
+| [`v1.1.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.1.0) | The same files as plain project files, byte-identical to the archive contents | The original benchmark version, without unzipping |
 | `v1.2.0` | The same semantic model, with all 12 diagrams laid out | Reading and extending the model |
 
 The semantic model is the same in all three: the `.capella` file's SHA-256 is
 `2849ad9b229a025ea6b8958292971ee07d5ef8c3987202eb340e5f655fb00c2d`. In `v1.2.0` only the diagram layout changed,
-so to repeat the experiments exactly, use `v1.1.0` or `v1.0.0`.
+so to reproduce results recorded against the original benchmark version, use `v1.1.0` or `v1.0.0`.
 
 [`model/SHA256SUMS`](model/SHA256SUMS) records every model file, and CI checks it. A change to the model changes
 the benchmark, so the release that ships it gets a new version tag.
@@ -197,7 +197,8 @@ the benchmark, so the release that ships it gets a new version tag.
 The scripts in [`acceptance/`](acceptance) built the model in a disposable Capella project through the Capella
 Agent Toolkit plug-in's dev server, in the order [`acceptance/README.md`](acceptance/README.md) gives.
 [`acceptance/rules`](acceptance/rules) pins the rule inventory and [`acceptance/safety`](acceptance/safety) holds
-the three slices, each with its own README. The v1.2.0 diagram layout was applied afterwards and no script
+the three slices, each with its own README. [`acceptance/submissions`](acceptance/submissions) adds the
+competition-submission layer on top of them. The v1.2.0 diagram layout was applied afterwards and no script
 reproduces it; [docs/DIAGRAMS.md](docs/DIAGRAMS.md#about-the-layout-and-the-images) explains.
 
 ## Using it as a benchmark
@@ -207,7 +208,7 @@ The task sets, harness and grader live in the toolkit's
 
 1. Clone this repository next to the toolkit and keep the folder name `fsae-2027-capella-model`. Or set
    `EVAL_MODEL` to its `model/FSAE-2027-Electric-Arcadia` folder.
-2. To repeat the published experiments exactly, check out `v1.1.0` (`git checkout v1.1.0`). The default branch
+2. To reproduce results recorded against the original benchmark version, check out `v1.1.0` (`git checkout v1.1.0`). The default branch
    has the re-laid-out diagrams of `v1.2.0`.
 
 ## Licensing

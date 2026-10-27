@@ -31,7 +31,7 @@ endorsed by SAE International; Formula SAE is a trademark of SAE International.
 | Capella 7.0.x | The model was built with Capella 7.0. Use the latest 7.0.x release, [Capella 7.0.1](https://github.com/eclipse-capella/capella/releases/tag/v7.0.1). |
 | Requirements Viewpoint 0.14.0 | The add-on that holds the requirements. [Release page](https://github.com/eclipse-capella/capella-requirements-vp/releases/tag/v0.14.0); it is compatible with Capella 7.x. |
 | Computer | The official Capella guide recommends a 64-bit Windows, Linux or macOS computer, a 2 GHz processor, 4 GB RAM and 15 GB of free disk space. It also notes that Linux and macOS are less field-tested than Windows. |
-| Memory for Capella | Capella 7.0 starts with a maximum Java heap of 3000 MB (`-Xmx3000m` in `capella.ini`). The model has about 86,000 elements. The toolkit's evaluation harness opens it with `-Xmx3g`, about the same size as the default. |
+| Memory for Capella | Capella 7.0 starts with a maximum Java heap of 3000 MB (`-Xmx3000m` in `capella.ini`). The model has about 100,000 elements. The toolkit's evaluation harness opens it with `-Xmx3g`, about the same size as the default. |
 | Disk for the model | About 26 MB for the project files. |
 | Git (optional) | To clone the repository. You can download a ZIP instead. |
 
@@ -120,7 +120,7 @@ You do not need to activate the viewpoint in this model. It is already reference
 | You want to | Use |
 |---|---|
 | Explore the model or start from it | The latest release on the [releases page](https://github.com/sidkolapalli/fsae-2027-capella-model/releases). Later releases lay out the diagrams; the semantic `.capella` file is the same as in v1.1.0. |
-| Repeat the Capella Agent Toolkit experiments exactly | `v1.0.0` (the version every experiment used, stored as `model/FSAE-2027-Electric-Arcadia.zip`) or `v1.1.0` (the same model as plain files). |
+| Reproduce benchmark results recorded against the original version | `v1.0.0` (stored as `model/FSAE-2027-Electric-Arcadia.zip`) or `v1.1.0` (the same model as plain files). |
 
 ### Download it
 
@@ -284,7 +284,7 @@ Capella has a built-in validator
 
 1. In the Project Explorer, right-click the root of the model and run the validation command from the context
    menu. You can also run it on any element to validate only that part.
-2. Wait. On about 86,000 elements this takes some time.
+2. Wait. On about 100,000 elements this takes some time.
 3. Read the results in the **Information View**. A tooltip explains each broken rule. To keep the results, use the
    **Save** button in the Information View toolbar to export them as HTML.
 
