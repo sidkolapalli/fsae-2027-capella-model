@@ -155,10 +155,9 @@ With the [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-t
 Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI can read the model open in Capella and answer questions
 about it. It changes nothing unless you approve the exact edit in Capella. The agent can be wrong: check each answer
 against the model. To find an element name it cites, type the name into the filter box at the top of the Project
-Explorer. The toolkit repository is private for now. Once it is public, its
+Explorer. The toolkit's
 [install guide](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md) shows how to
-connect each agent. [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup steps and
-questions to ask.
+connect each agent, and [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup steps and questions to ask.
 
 ## Open the model
 

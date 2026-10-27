@@ -717,7 +717,7 @@
         "bspd-trip"
       ],
       "owner": "shutdown independent BSPD",
-      "statement": "Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, in addition to the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware.",
+      "statement": "Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, independently of the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware.",
       "conditions": [
         "Independent BSPD architecture and independence evidence still require design review."
       ],

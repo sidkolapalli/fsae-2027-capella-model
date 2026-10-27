@@ -2032,7 +2032,7 @@
         "rollover",
         "accommodate"
       ],
-      "statement": "Use closed metal tubing of the prescribed class for a front hoop rising from the lowest frame member on one side to the lowest on the other. Multiple pieces require correct triangulation. Its top is at least as high as the steering-wheel top in every angular position. Its rear surface is at most 250 mm forward of the wheel rim's forwardmost surface, measured horizontally on centerline with steering straight. Above the upper side-impact structure, side-view inclination is strictly below 20 degrees from vertical. A nonsteel hoop has an accessible 4 mm inspection hole. Avoid concave top-perimeter sections as the source recommendation.",
+      "statement": "Use closed metal tubing of the prescribed class for a front hoop running up from the bottom frame member on one side and down to the bottom member on the other. Multiple pieces require correct triangulation. Its top is at least as high as the steering-wheel top in every angular position. Its rear surface is at most 250 mm forward of the wheel rim's forwardmost surface, measured horizontally on centerline with steering straight. Above the upper side-impact structure, side-view inclination is strictly below 20 degrees from vertical. A nonsteel hoop has an accessible 4 mm inspection hole. Avoid concave top-perimeter sections as the source recommendation.",
       "conditions_and_alternatives": [
         "Front hoop material remains unselected; the nonsteel inspection-hole condition is retained."
       ],
@@ -4217,7 +4217,7 @@
         "front",
         "loadpath"
       ],
-      "statement": "The combined IA assembly force and force to crush/detach other objects ahead of AIP cannot exceed the F.8.8.2 peak deceleration; exclude light bodywork, light nosecones and outboard wheel assemblies. Use peak loads 95 kN for standard foam,60 kN for standard honeycomb or the measured peak for a tested IA. Demonstrate the total by testing IA and noncrushable objects together, or testing objects alone and adding the specified IA peak; alternatively calculate mounting failure from fastener shear, tearout and/or link buckling and add the corresponding IA peak.",
+      "statement": "The combined IA assembly force and force to crush/detach other objects ahead of AIP cannot exceed the F.8.8.2 peak deceleration; leave out outboard wheel assemblies and any lightweight bodywork or nosecone. Use peak loads 95 kN for standard foam,60 kN for standard honeycomb or the measured peak for a tested IA. Demonstrate the total by testing IA and noncrushable objects together, or testing objects alone and adding the specified IA peak; alternatively calculate mounting failure from link buckling, fastener shear or tearout and add the corresponding IA peak.",
       "conditions_and_alternatives": [
         "The applicable material-dependent peak must be selected after IA choice, not combined or universally substituted."
       ],
@@ -5085,7 +5085,7 @@
         "barrier",
         "loadpath"
       ],
-      "statement": "Contain hips entirely within major chassis structure. With feet on pedals, feet/legs ahead of the front hoop stay inside/below structural tubing or equivalent in front/side views. Shield every moving suspension/steering part and sharp edge in the cockpit from the front hoop to a plane 100 mm behind pedals using solid material, including springs, dampers, rockers, antiroll bars, rack and column CV joints; make covers removable for mounting-point inspection. Protect the seat by keeping its lowest point at/above the upper surface of the lowest structural tube/equivalent in side view, or by a longitudinal class B side-impact tube below it.",
+      "statement": "Contain hips entirely within major chassis structure. With feet on pedals, feet/legs ahead of the front hoop stay inside/below structural tubing or equivalent in front/side views. Shield every moving suspension/steering part and sharp edge in the cockpit from the front hoop to a plane 100 mm behind pedals using solid material, including springs, dampers, rockers, antiroll bars, rack and column CV joints; make covers removable for mounting-point inspection. Protect the seat by keeping its lowest point no lower than the top of the lowest structural tube (or equivalent) in side view, or by a longitudinal class B side-impact tube below it.",
       "conditions_and_alternatives": [
         "Seat protection alternatives remain unresolved; shields are functional hazards barriers, not permanent inspection obstructions."
       ],

@@ -25,8 +25,7 @@ Two things to keep in mind from the start:
 | An AI agent that supports MCP, such as Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI | The toolkit [install guide](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md), one section per agent |
 | An account for that agent. Most need a sign-in, and many need a subscription or an API key; some have free or student tiers | The agent's own website. Check this before you start |
 
-The toolkit repository is private for now. The toolkit links on this page work once it is public. For now the
-plug-in is built from source, which needs a Java 17 JDK, Maven and Python 3, as the quick start describes.
+The plug-in is built from source, which needs a Java 17 JDK, Maven and Python 3, as the quick start describes.
 
 The plug-in runs a small server inside Capella. Your agent talks to that server with MCP (Model Context
 Protocol), and the server reads the model that is open in Capella. Nothing leaves your computer except what your
