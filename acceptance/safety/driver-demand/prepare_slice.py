@@ -67,7 +67,7 @@ GROUPS = [
          checks="Exercise mechanical-brake engagement with APPS below, at and above twenty-five percent. Demonstrate complete motor-power removal and persistence despite brake release until APPS is strictly below five percent; check the five-percent boundary."),
     dict(id="DD-11", title="BSPD independence from programmable pedal plausibility",
          rules=["EV.8.7.1"], functions=["bspd-monitor", "bspd-trip"], owner="shutdown independent BSPD",
-         statement="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, in addition to the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware.",
+         statement="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, independently of the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware.",
          conditions=["Independent BSPD architecture and independence evidence still require design review."], numeric=[],
          checks="Review schematic, signal dependencies, power/fault paths and component implementation. Demonstrate that programmable APPS/BSE plausibility logic is not the BSPD implementation and cannot defeat its shutdown request."),
     dict(id="DD-12", title="BSPD trip on persistent brake/high-power conflict or input fault",

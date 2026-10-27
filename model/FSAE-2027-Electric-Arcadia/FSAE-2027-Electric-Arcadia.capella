@@ -109682,7 +109682,7 @@
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="41594ed9-7495-476b-ad71-bf75934bbbb0"
               definition="#41afa17f-634c-41e7-979f-4215631eb35d" value="not_claimed"/>
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="9182a1d4-db3e-4ca0-b4d3-9ae6f74cd996"
-              definition="#cd92da3c-dabc-4352-8406-10793ad92c60" value="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, in addition to the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware."/>
+              definition="#cd92da3c-dabc-4352-8406-10793ad92c60" value="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, independently of the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware."/>
           <ownedRelations xsi:type="CapellaRequirements:CapellaIncomingRelation" id="c7f25ff2-e470-4f58-9539-b863365425e1"
               ReqIFLongName="verify" relationType="#9cfd44cc-2aa9-4909-9ee5-e8c8fd3f4546"
               source="#874d13bd-a835-47ea-8ca4-4a6a98be4947" target="#f3e1c40b-4c64-43af-a2b4-83c0a5cad20d"/>
@@ -109739,7 +109739,7 @@
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="fa328a89-771d-4208-92af-551d12869300"
               definition="#41afa17f-634c-41e7-979f-4215631eb35d" value="not_claimed"/>
           <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="a0e6d52d-054b-4231-ac75-7243f5ec13d5"
-              definition="#cd92da3c-dabc-4352-8406-10793ad92c60" value="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, in addition to the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware."/>
+              definition="#cd92da3c-dabc-4352-8406-10793ad92c60" value="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, independently of the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware."/>
           <ownedRelations xsi:type="CapellaRequirements:CapellaIncomingRelation" id="5abfcfce-7ba8-412c-9b56-71bdc64878e5"
               ReqIFLongName="verify" relationType="#9cfd44cc-2aa9-4909-9ee5-e8c8fd3f4546"
               source="#d4bf361b-6d1f-438a-a7c7-d64174650f07" target="#f3e1c40b-4c64-43af-a2b4-83c0a5cad20d"/>
@@ -150954,7 +150954,7 @@
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="5805652f-a938-4a77-9221-7889782817a3"
               ReqIFIdentifier="FSAE2027:DD:DD-11" ReqIFLongName="BSPD independence from programmable pedal plausibility"
-              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, in addition to the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware.">
+              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, independently of the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware.">
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="c49e5c6b-8750-4869-8e97-e4a03e6df2f1"
                 definition="#2995bb7e-2ae8-44cc-8109-0e3520ef230d" value="interpreted"/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="01e411bd-8b5b-4ae5-a4a0-408d95c2959d"
@@ -150980,7 +150980,7 @@
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="09681621-7d17-4dd5-9307-75a06dce27d0"
                 definition="#41afa17f-634c-41e7-979f-4215631eb35d" value="not_claimed"/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="bc069293-5723-4feb-8f25-6d2e9c5bb037"
-                definition="#cd92da3c-dabc-4352-8406-10793ad92c60" value="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, in addition to the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware."/>
+                definition="#cd92da3c-dabc-4352-8406-10793ad92c60" value="Provide a standalone nonprogrammable circuit that detects simultaneous braking and high motor-power output, independently of the APPS/brake pedal plausibility function. This candidate gives the BSPD a separate physical circuit and separately modeled sensor-input checks; it does not replace it with ECU firmware."/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="fddba024-8409-4bbf-a3b3-da0d4ce4f87f"
                 definition="#9ef6f6e2-95cf-48f9-bb1a-0dc6504d8d99" value="[&quot;Independent BSPD architecture and independence evidence still require design review.&quot;]"/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="5b1fd8c4-791c-40c5-ad9e-c5da61a01d5f"
@@ -151720,7 +151720,7 @@
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="16f10aaa-39a4-400a-9d86-33c61b062f1a"
               ReqIFIdentifier="FSAE2027:VP:obligation:FRONT-HOOP" ReqIFLongName="FSAE2027:VP Constrain front-hoop material and geometry"
-              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="Use closed metal tubing of the prescribed class for a front hoop rising from the lowest frame member on one side to the lowest on the other. Multiple pieces require correct triangulation. Its top is at least as high as the steering-wheel top in every angular position. Its rear surface is at most 250 mm forward of the wheel rim's forwardmost surface, measured horizontally on centerline with steering straight. Above the upper side-impact structure, side-view inclination is strictly below 20 degrees from vertical. A nonsteel hoop has an accessible 4 mm inspection hole. Avoid concave top-perimeter sections as the source recommendation.">
+              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="Use closed metal tubing of the prescribed class for a front hoop running up from the bottom frame member on one side and down to the bottom member on the other. Multiple pieces require correct triangulation. Its top is at least as high as the steering-wheel top in every angular position. Its rear surface is at most 250 mm forward of the wheel rim's forwardmost surface, measured horizontally on centerline with steering straight. Above the upper side-impact structure, side-view inclination is strictly below 20 degrees from vertical. A nonsteel hoop has an accessible 4 mm inspection hole. Avoid concave top-perimeter sections as the source recommendation.">
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="569e95aa-6403-4438-98bf-19bf0022b4a9"
                 definition="#f28516c8-9d0f-4e03-b0f2-cefc6667b433" value="FSAE-2027-V1"/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="6bf566c6-5518-4a30-8d46-b3ddca960dce"
@@ -152418,7 +152418,7 @@
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="f19cbd51-0bbc-4578-b3e0-42f17ab95f4f"
               ReqIFIdentifier="FSAE2027:VP:obligation:FRONT-FORCE" ReqIFLongName="FSAE2027:VP Combine attenuator and other frontal-object forces"
-              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="The combined IA assembly force and force to crush/detach other objects ahead of AIP cannot exceed the F.8.8.2 peak deceleration; exclude light bodywork, light nosecones and outboard wheel assemblies. Use peak loads 95 kN for standard foam,60 kN for standard honeycomb or the measured peak for a tested IA. Demonstrate the total by testing IA and noncrushable objects together, or testing objects alone and adding the specified IA peak; alternatively calculate mounting failure from fastener shear, tearout and/or link buckling and add the corresponding IA peak.">
+              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="The combined IA assembly force and force to crush/detach other objects ahead of AIP cannot exceed the F.8.8.2 peak deceleration; leave out outboard wheel assemblies and any lightweight bodywork or nosecone. Use peak loads 95 kN for standard foam,60 kN for standard honeycomb or the measured peak for a tested IA. Demonstrate the total by testing IA and noncrushable objects together, or testing objects alone and adding the specified IA peak; alternatively calculate mounting failure from link buckling, fastener shear or tearout and add the corresponding IA peak.">
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="2ea2470c-7ee0-4f76-8db0-de05e4c3acd1"
                 definition="#f28516c8-9d0f-4e03-b0f2-cefc6667b433" value="FSAE-2027-V1"/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="c57a3d50-7a27-45fc-9f0b-f34c1a6010ea"
@@ -152714,7 +152714,7 @@
           </ownedRequirements>
           <ownedRequirements xsi:type="Requirements:Requirement" id="14a6b2d5-ebe7-4d05-9b73-f0f83412b4e1"
               ReqIFIdentifier="FSAE2027:VP:obligation:COCKPIT-PROTECTION" ReqIFLongName="FSAE2027:VP Contain the occupant and shield moving/sharp hazards"
-              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="Contain hips entirely within major chassis structure. With feet on pedals, feet/legs ahead of the front hoop stay inside/below structural tubing or equivalent in front/side views. Shield every moving suspension/steering part and sharp edge in the cockpit from the front hoop to a plane 100 mm behind pedals using solid material, including springs, dampers, rockers, antiroll bars, rack and column CV joints; make covers removable for mounting-point inspection. Protect the seat by keeping its lowest point at/above the upper surface of the lowest structural tube/equivalent in side view, or by a longitudinal class B side-impact tube below it.">
+              requirementType="#f8e4778c-4fd3-4570-94cf-86b53014d474" ReqIFText="Contain hips entirely within major chassis structure. With feet on pedals, feet/legs ahead of the front hoop stay inside/below structural tubing or equivalent in front/side views. Shield every moving suspension/steering part and sharp edge in the cockpit from the front hoop to a plane 100 mm behind pedals using solid material, including springs, dampers, rockers, antiroll bars, rack and column CV joints; make covers removable for mounting-point inspection. Protect the seat by keeping its lowest point no lower than the top of the lowest structural tube (or equivalent) in side view, or by a longitudinal class B side-impact tube below it.">
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="091558d8-d0e5-4cd5-9564-718d3185a5fc"
                 definition="#f28516c8-9d0f-4e03-b0f2-cefc6667b433" value="FSAE-2027-V1"/>
             <ownedAttributes xsi:type="Requirements:StringValueAttribute" id="50164d91-e3e4-4370-9c69-fcb21f1159ee"
