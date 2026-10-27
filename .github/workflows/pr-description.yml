@@ -1,0 +1,33 @@
+name: pr-description
+
+# Fails a pull request whose description drops the template's sections or leaves
+# "What and why" empty. Dependabot writes its own description and is skipped.
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions: {}
+
+jobs:
+  pr-description:
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check the description follows the template
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          text = re.sub(r"<!--.*?-->", "", os.environ.get("BODY") or "", flags=re.S)
+          headings = ["What and why", "Evidence"]
+          missing = [h for h in headings if not re.search(rf"^## {re.escape(h)}\s*$", text, re.M)]
+          what = re.search(r"^## What and why\s*$(.*?)(?=^## |\Z)", text, re.M | re.S)
+          errors = [f"missing section: ## {h}" for h in missing]
+          if what and not what.group(1).strip():
+              errors.append("'What and why' is empty")
+          for e in errors:
+              print(f"::error::{e}. Use .github/pull_request_template.md.")
+          sys.exit(1 if errors else 0)
+          PY
