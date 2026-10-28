@@ -1,13 +1,13 @@
 # FSAE 2027 acceptance project
 
 The scripts that built the benchmark model in [`../model`](../model) from the public Formula SAE 2027
-rulebook. Run them in a disposable Capella project through the dev server's `/execute`.
+rulebook. Run them in a disposable Eclipse Capella® project through the dev server's `/execute`.
 
 Before you start:
 
 - the Capella workspace folder must be named `capella-test-workspace`, and a session must be open on a project
   named `capella-ai-native-integration` or `FSAE-2027-Electric-Arcadia` (`00` checks the name);
-- start the dev server (toolkit [`docs/PLUGIN.md`](https://github.com/sidkolapalli/capella-agent-toolkit/blob/develop/docs/PLUGIN.md#local-dev-server), "Local dev server");
+- start the dev server (toolkit [`docs/PLUGIN.md`](https://github.com/sidkolapalli/agent-toolkit-for-capella/blob/develop/docs/PLUGIN.md#local-dev-server), "Local dev server");
 - keep the rulebook PDF in a private cache outside the repository; the rule import batches are generated from it
   (see [`rules/README.md`](rules/README.md)).
 

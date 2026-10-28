@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this model, please cite it as below."
 type: dataset
-title: "FSAE 2027 Electric Arcadia model"
+title: "FSAE 2027 Model for Capella"
 abstract: >-
-  A Capella 7 (Arcadia) model of a Formula SAE 2027 electric car, built from the public rulebook: the rules as
+  An Eclipse Capella 7 (Arcadia) model of a Formula SAE 2027 electric car, built from the public rulebook: the rules as
   requirements, a candidate architecture across all five perspectives, open design decisions and
   competition-submission tracking.
 authors:
   - alias: sidkolapalli
     website: "https://sidkolapalli.com"
-repository-code: "https://github.com/sidkolapalli/fsae-2027-capella-model"
+repository-code: "https://github.com/sidkolapalli/fsae-2027-model-for-capella"
 license: CC-BY-4.0
 version: "1.3.0"
 date-released: "2026-10-27"

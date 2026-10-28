@@ -8,9 +8,9 @@ follows the [Code of Conduct](CODE_OF_CONDUCT.md).
 ## Changing the model
 
 The model in `model/` is built by the scripts in `acceptance/`; change the scripts, not only the model. Run them
-through the [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) dev server in a disposable
-Capella 7.0 project with Requirements Viewpoint 0.14.0, with the prerequisites and in the order that
-[`acceptance/README.md`](acceptance/README.md) gives, then:
+through the [Agent Toolkit for Eclipse Capella®](https://github.com/sidkolapalli/agent-toolkit-for-capella) dev
+server in a disposable Capella 7.0 project with Requirements Viewpoint 0.14.0, with the prerequisites and in the
+order that [`acceptance/README.md`](acceptance/README.md) gives, then:
 
 1. run the verifiers (`20`, `31`, `33`, the slice verifiers `safety/shutdown/40-verify-shutdown.groovy`,
    `safety/driver-demand/40-verify-driver-demand.groovy` and `safety/vehicle-protection/40-verify-vehicle-protection.groovy`,

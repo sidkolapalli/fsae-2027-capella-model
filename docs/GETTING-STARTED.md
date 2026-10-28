@@ -1,7 +1,8 @@
 # Getting started
 
-This guide takes you from nothing to exploring the FSAE 2027 Capella model. It assumes you know systems
-engineering but may be new to Capella. For how the model is organized, see [MODEL-GUIDE.md](MODEL-GUIDE.md).
+This guide takes you from nothing to exploring the FSAE 2027 Model for Eclipse Capella®. It assumes you know
+systems engineering but may be new to Capella. For how the model is organized, see
+[MODEL-GUIDE.md](MODEL-GUIDE.md).
 
 ## What this model is, and what it is not
 
@@ -17,8 +18,8 @@ It is not a finished or compliant car:
 - many records are still marked as needing review or as not modeled.
 
 The open decisions and unfinished items are also realistic tasks. The
-[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) uses them to find gaps in AI agent
-skills.
+[Agent Toolkit for Capella](https://github.com/sidkolapalli/agent-toolkit-for-capella) uses them to find gaps in AI
+agent skills.
 
 The model carries rule identifiers, page numbers and headings from the Formula SAE Rules 2027, but not the rule
 text. Get the rulebook from [fsaeonline.com](https://www.fsaeonline.com). This project is not affiliated with or
@@ -119,7 +120,7 @@ You do not need to activate the viewpoint in this model. It is already reference
 
 | You want to | Use |
 |---|---|
-| Explore the model or start from it | The latest release on the [releases page](https://github.com/sidkolapalli/fsae-2027-capella-model/releases). Later releases lay out the diagrams; the semantic `.capella` file is the same as in v1.1.0. |
+| Explore the model or start from it | The latest release on the [releases page](https://github.com/sidkolapalli/fsae-2027-model-for-capella/releases). Later releases lay out the diagrams; the semantic `.capella` file is the same as in v1.1.0. |
 | Reproduce benchmark results recorded against the original version | `v1.0.0` (stored as `model/FSAE-2027-Electric-Arcadia.zip`) or `v1.1.0` (the same model as plain files). |
 
 ### Download it
@@ -127,8 +128,8 @@ You do not need to activate the viewpoint in this model. It is already reference
 With Git:
 
 ```bash
-git clone https://github.com/sidkolapalli/fsae-2027-capella-model.git
-cd fsae-2027-capella-model
+git clone https://github.com/sidkolapalli/fsae-2027-model-for-capella.git
+cd fsae-2027-model-for-capella
 git checkout <tag>   # for example the latest tag on the releases page, or v1.1.0
 ```
 
@@ -296,8 +297,8 @@ or the design is verified.
 
 ## 8. Use it with an AI agent
 
-The [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) is a Capella 7 plug-in with an
-MCP server. Any MCP client, such as Claude Code or Codex, can then read and change the model open in Capella, and a
+The [Agent Toolkit for Capella](https://github.com/sidkolapalli/agent-toolkit-for-capella) is a Capella 7 plug-in with
+an MCP server. Any MCP client, such as Claude Code or Codex, can then read and change the model open in Capella, and a
 person reviews every edit in Capella before it runs. The toolkit also has agent skills and the evaluation harness
 that uses this model. To learn the model by asking an agent questions, see [LEARN-WITH-AI.md](LEARN-WITH-AI.md).
 To set up the harness, see

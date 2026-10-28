@@ -27,7 +27,7 @@ LEGEND = [
     "element or obligation stands for the item but holds no team value yet; items that only restate a rule value "
     "are `partial` too. `absent` means the model has nothing for the item, or cannot hold it (photos, raw test "
     "data, receipts, records).",
-    "- **Source**: where the value comes from: `model` (this Capella model), `cad` (CAD and drawings), `analysis` "
+    "- **Source**: where the value comes from: `model` (this Eclipse Capella® model), `cad` (CAD and drawings), `analysis` "
     "(calculations), `test` (physical tests), `supplier` (datasheets and purchase records), `admin` (team "
     "administration).",
     "- **Status**: the team's progress. Conditional rows (aluminum, composite, monocoque, custom IA, digital "

@@ -47,9 +47,9 @@ One rule sets `submission_model_status` on every page:
 - `absent`: the model has nothing for the item, or cannot hold it: photos, raw test data, receipts, facility and test
   records, declarations.
 
-`submission_source_kind` says where the value comes from: `model` (this Capella model), `cad` (CAD and drawings),
-`analysis` (calculations), `test` (physical tests), `supplier` (datasheets and purchase records), `admin` (team
-administration).
+`submission_source_kind` says where the value comes from: `model` (this Eclipse Capella® model), `cad` (CAD and
+drawings), `analysis` (calculations), `test` (physical tests), `supplier` (datasheets and purchase records), `admin`
+(team administration).
 
 The page overviews state the model state in plain words. In attribute terms: every source requirement still reads
 `coverage_status=not_modeled` and `verification_status=not_verified`, traced or not, so trace links (not that

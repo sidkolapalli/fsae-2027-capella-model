@@ -1,7 +1,7 @@
 # Learn the model with an AI agent
 
-This page shows how to use an AI agent to learn the FSAE 2027 Capella model by asking it questions. It is for
-Formula SAE students, including those who are new to Capella and to MBSE (model-based systems engineering).
+This page shows how to use an AI agent to learn the FSAE 2027 Model for Eclipse Capella® by asking it questions. It
+is for Formula SAE students, including those who are new to Capella and to MBSE (model-based systems engineering).
 
 ## Why use an agent
 
@@ -21,8 +21,8 @@ Two things to keep in mind from the start:
 | Item | Where to get it |
 |---|---|
 | Capella 7.0, Requirements Viewpoint 0.14.0 and this model, imported and open | [GETTING-STARTED.md](GETTING-STARTED.md), steps 1 to 5 |
-| The Capella Agent Toolkit plug-in, installed in Capella | The toolkit [README quick start](https://github.com/sidkolapalli/capella-agent-toolkit#quick-start) |
-| An AI agent that supports MCP, such as Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI | The toolkit [install guide](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md), one section per agent |
+| The Agent Toolkit for Capella plug-in, installed in Capella | The toolkit [README quick start](https://github.com/sidkolapalli/agent-toolkit-for-capella#quick-start) |
+| An AI agent that supports MCP, such as Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI | The toolkit [install guide](https://github.com/sidkolapalli/agent-toolkit-for-capella/blob/main/docs/INSTALL.md), one section per agent |
 | An account for that agent. Most need a sign-in, and many need a subscription or an API key; some have free or student tiers | The agent's own website. Check this before you start |
 
 The plug-in is built from source, which needs a Java 17 JDK, Maven and Python 3, as the quick start describes.
@@ -35,7 +35,7 @@ agent sends to its own model provider.
 
 0. Set a fixed token before you open Capella. The token is a password that Capella's server checks on every
    request. Follow the
-   [Set a fixed MCP token](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md#set-a-fixed-mcp-token)
+   [Set a fixed MCP token](https://github.com/sidkolapalli/agent-toolkit-for-capella/blob/main/docs/INSTALL.md#set-a-fixed-mcp-token)
    section of the toolkit install guide, so the connection still works after you restart Capella. Then close
    Capella and your terminal, and reopen both: programs that are already running do not see the new token.
 1. Open the model in Capella, as [GETTING-STARTED.md](GETTING-STARTED.md#5-import-the-project-and-open-it)
@@ -43,7 +43,7 @@ agent sends to its own model provider.
 2. Start the server: **Window > Show View > Other > AI Dev Server > Start**. It listens on port 8765, on your
    computer only.
 3. Connect your agent and install the toolkit's skills, following the section for your agent in
-   [INSTALL.md](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md). A skill is a
+   [INSTALL.md](https://github.com/sidkolapalli/agent-toolkit-for-capella/blob/main/docs/INSTALL.md). A skill is a
    packaged set of instructions the agent loads when you run it by name.
 4. Run the `capella-setup` skill to check the connection: `/capella-setup` in most agents, `$capella-setup` in
    Codex. It is done when the agent names the open project, `FSAE-2027-Electric-Arcadia`, and its layers.
