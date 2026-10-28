@@ -1,11 +1,11 @@
 <div align="center">
 
-# FSAE 2027 Capella model
+# FSAE 2027 Model for Eclipse Capella®
 
 A Capella 7.0 reference model of a Formula SAE 2027 electric car: rules as requirements, a candidate
 architecture across all five Arcadia perspectives, and the open decisions left to make.
 
-<a href="https://github.com/sidkolapalli/fsae-2027-capella-model/actions/workflows/test.yml"><img alt="CI" src="https://github.com/sidkolapalli/fsae-2027-capella-model/actions/workflows/test.yml/badge.svg"></a>
+<a href="https://github.com/sidkolapalli/fsae-2027-model-for-capella/actions/workflows/test.yml"><img alt="CI" src="https://github.com/sidkolapalli/fsae-2027-model-for-capella/actions/workflows/test.yml/badge.svg"></a>
 <a href="https://eclipse.dev/capella/"><img alt="Capella 7.0" src="https://img.shields.io/badge/Capella-7.0-blue"></a>
 <a href="https://github.com/eclipse-capella/capella-requirements-vp/releases/tag/v0.14.0"><img alt="Requirements Viewpoint 0.14.0" src="https://img.shields.io/badge/Requirements%20Viewpoint-0.14.0-blue"></a>
 <a href="LICENSE-CC-BY-4.0"><img alt="Model licence CC BY 4.0" src="https://img.shields.io/badge/model-CC%20BY%204.0-green"></a>
@@ -28,7 +28,7 @@ architecture across all five Arcadia perspectives, and the open decisions left t
 A [Capella](https://eclipse.dev/capella/) 7.0 model of a Formula SAE 2027 electric car, built with the Arcadia
 method (a way to describe a system in layers, from what its users need down to its parts) from the public 2027
 rulebook, and the scripts that built it. It is also the benchmark model of the
-[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit)'s evaluation harness.
+[Agent Toolkit for Capella](https://github.com/sidkolapalli/agent-toolkit-for-capella)'s evaluation harness.
 
 It is meant as a reference platform and a head start. A Formula SAE team can use it as a guideline that mimics a
 real vehicle development platform: rules turned into requirements, an architecture across all perspectives,
@@ -151,12 +151,12 @@ All twelve diagrams, with what each shows, are in [docs/DIAGRAMS.md](docs/DIAGRA
 
 ### Learn it faster: ask an AI agent
 
-With the [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit), an AI agent such as
+With the [Agent Toolkit for Capella](https://github.com/sidkolapalli/agent-toolkit-for-capella), an AI agent such as
 Claude Code, Codex, Cursor, GitHub Copilot or Gemini CLI can read the model open in Capella and answer questions
 about it. It changes nothing unless you approve the exact edit in Capella. The agent can be wrong: check each answer
 against the model. To find an element name it cites, type the name into the filter box at the top of the Project
 Explorer. The toolkit's
-[install guide](https://github.com/sidkolapalli/capella-agent-toolkit/blob/main/docs/INSTALL.md) shows how to
+[install guide](https://github.com/sidkolapalli/agent-toolkit-for-capella/blob/main/docs/INSTALL.md) shows how to
 connect each agent, and [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup steps and questions to ask.
 
 ## Open the model
@@ -166,7 +166,7 @@ connect each agent, and [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup 
    for Capella 7. The release page offers a dropins archive and an update site; the update site needs three
    dependency update sites added first, which the page lists.
 2. Clone this repository, or download it from the
-   [releases page](https://github.com/sidkolapalli/fsae-2027-capella-model/releases). The latest release suits
+   [releases page](https://github.com/sidkolapalli/fsae-2027-model-for-capella/releases). The latest release suits
    exploring the model; [Versions](#versions) lists the earlier releases.
 3. Import [`model/FSAE-2027-Electric-Arcadia`](model/FSAE-2027-Electric-Arcadia) into your workspace as an
    existing project, with **File > Import...** and the existing-project import under **General**. Choose to copy
@@ -181,8 +181,8 @@ connect each agent, and [LEARN-WITH-AI.md](docs/LEARN-WITH-AI.md) has the setup 
 
 | Tag | What it holds | Use it for |
 |---|---|---|
-| [`v1.0.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.0.0) | The project as `model/FSAE-2027-Electric-Arcadia.zip` (SHA-256 `66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3`) | The original benchmark version |
-| [`v1.1.0`](https://github.com/sidkolapalli/fsae-2027-capella-model/tree/v1.1.0) | The same files as plain project files, byte-identical to the archive contents | The original benchmark version, without unzipping |
+| [`v1.0.0`](https://github.com/sidkolapalli/fsae-2027-model-for-capella/tree/v1.0.0) | The project as `model/FSAE-2027-Electric-Arcadia.zip` (SHA-256 `66e693abfdf821af96f241ee707f74efe44939c4d7b3d63ef830169b075e1ba3`) | The original benchmark version |
+| [`v1.1.0`](https://github.com/sidkolapalli/fsae-2027-model-for-capella/tree/v1.1.0) | The same files as plain project files, byte-identical to the archive contents | The original benchmark version, without unzipping |
 | `v1.2.0` | The same semantic model, with all 12 diagrams laid out | Reading and extending the model |
 
 The semantic model is the same in all three: the `.capella` file's SHA-256 is
@@ -194,8 +194,8 @@ the benchmark, so the release that ships it gets a new version tag.
 
 ## How it was built
 
-The scripts in [`acceptance/`](acceptance) built the model in a disposable Capella project through the Capella
-Agent Toolkit plug-in's dev server, in the order [`acceptance/README.md`](acceptance/README.md) gives.
+The scripts in [`acceptance/`](acceptance) built the model in a disposable Capella project through the Agent
+Toolkit for Capella plug-in's dev server, in the order [`acceptance/README.md`](acceptance/README.md) gives.
 [`acceptance/rules`](acceptance/rules) pins the rule inventory and [`acceptance/safety`](acceptance/safety) holds
 the three slices, each with its own README. [`acceptance/submissions`](acceptance/submissions) adds the
 competition-submission layer on top of them. The v1.2.0 diagram layout was applied afterwards and no script
@@ -204,9 +204,9 @@ reproduces it; [docs/DIAGRAMS.md](docs/DIAGRAMS.md#about-the-layout-and-the-imag
 ## Using it as a benchmark
 
 The task sets, harness and grader live in the toolkit's
-[`test-models/evals`](https://github.com/sidkolapalli/capella-agent-toolkit/tree/develop/test-models/evals).
+[`test-models/evals`](https://github.com/sidkolapalli/agent-toolkit-for-capella/tree/develop/test-models/evals).
 
-1. Clone this repository next to the toolkit and keep the folder name `fsae-2027-capella-model`. Or set
+1. Clone this repository next to the toolkit and keep the folder name `fsae-2027-model-for-capella`. Or set
    `EVAL_MODEL` to its `model/FSAE-2027-Electric-Arcadia` folder.
 2. To reproduce results recorded against the original benchmark version, check out `v1.1.0` (`git checkout v1.1.0`). The default branch
    has the re-laid-out diagrams of `v1.2.0`.
@@ -218,10 +218,14 @@ The task sets, harness and grader live in the toolkit's
 | The model in `model/` and the JSON data in `acceptance/` | [CC BY 4.0](LICENSE-CC-BY-4.0) |
 | The scripts in `acceptance/` (`.groovy`, `.py`) | [EPL-2.0](LICENSE) |
 
-To attribute the model, cite "FSAE 2027 Capella model, https://github.com/sidkolapalli/fsae-2027-capella-model".
+To attribute the model, cite "FSAE 2027 Model for Capella, https://github.com/sidkolapalli/fsae-2027-model-for-capella".
 
 The rule identifiers, page numbers and headings come from the Formula SAE Rules 2027, which are copyright SAE
 International. They are included only to trace each requirement to the rulebook and are not covered by the
 licences above; the rule text itself is not included, and the safety obligations are paraphrased. Get the rulebook
-from [fsaeonline.com](https://www.fsaeonline.com). This project is not affiliated with or endorsed by SAE
-International; Formula SAE is a trademark of SAE International.
+from [fsaeonline.com](https://www.fsaeonline.com).
+
+## Trademarks
+
+Eclipse, Eclipse Capella and Capella are trademarks of Eclipse Foundation AISBL. Formula SAE is a trademark of SAE
+International. This project is not affiliated with or endorsed by the Eclipse Foundation or SAE International.

@@ -1,10 +1,10 @@
 # Model guide
 
-This guide describes what is in the FSAE 2027 Capella model, how it is organized, and how to use it. It is for
-systems engineers who are new to this model and possibly new to Capella. To install Capella and open the model,
-follow [GETTING-STARTED.md](GETTING-STARTED.md). [CONTRIBUTING.md](../CONTRIBUTING.md) covers changes proposed back to this
-repository, which are built by scripts. A team developing its own fork edits the model in Capella, as
-[Using the model as a development platform](#using-the-model-as-a-development-platform) describes.
+This guide describes what is in the FSAE 2027 Model for Eclipse Capella®, how it is organized, and how to use it.
+It is for systems engineers who are new to this model and possibly new to Capella. To install Capella and open the
+model, follow [GETTING-STARTED.md](GETTING-STARTED.md). [CONTRIBUTING.md](../CONTRIBUTING.md) covers changes
+proposed back to this repository, which are built by scripts. A team developing its own fork edits the model in
+Capella, as [Using the model as a development platform](#using-the-model-as-a-development-platform) describes.
 
 The model is a reference platform and a head start, not a finished car. It turns the rulebook into native
 requirements, lays out a candidate architecture across all five Arcadia perspectives, keeps the major design
@@ -307,7 +307,7 @@ work in order. Each step names the model elements it changes.
    `verification_status=passed` on the requirement.
 6. **Run validation** on the model root, as [GETTING-STARTED.md](GETTING-STARTED.md#7-run-validation) describes. Compare the result with the baseline
    of zero errors and 517 warnings; that baseline applies only to validation of the whole model root with the
-   default rule categories. The Groovy verifiers in `acceptance/` need the Capella Agent Toolkit dev server;
+   default rule categories. The Groovy verifiers in `acceptance/` need the Agent Toolkit for Capella dev server;
    [CONTRIBUTING.md](../CONTRIBUTING.md) lists them. Save, close and reopen the model, then validate again.
 
    If you imported the project with copy-into-workspace, as GETTING-STARTED.md says, your edits are saved in the workspace
@@ -321,14 +321,14 @@ decisions and justified validation warnings, are not met.
 
 ## Using the model as a benchmark for agent skills
 
-The model is also the benchmark of the [Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit).
+The model is also the benchmark of the [Agent Toolkit for Capella](https://github.com/sidkolapalli/agent-toolkit-for-capella).
 The open decisions, TBD items and unmodeled records are realistic engineering tasks. Giving them to an AI agent shows
 where its modeling skills hold and where they fail: tracing a requirement to the right element, decomposing a
 function the Arcadia way, keeping realizations consistent across perspectives, and refusing to invent a value the
 model marks as unresolved.
 
 The task sets, harness and grader are in the toolkit's
-[`test-models/evals`](https://github.com/sidkolapalli/capella-agent-toolkit/tree/develop/test-models/evals). To set it
+[`test-models/evals`](https://github.com/sidkolapalli/agent-toolkit-for-capella/tree/develop/test-models/evals). To set it
 up, see [Using it as a benchmark](../README.md#using-it-as-a-benchmark) in the README. The harness starts Capella with
 `-Xms512m -Xmx3g -Xss4m` for this model. A change to the model changes the benchmark, so results stay tied to the
 version tag they used (see [Versions](../README.md#versions)).

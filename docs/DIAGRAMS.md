@@ -10,7 +10,7 @@ the diagrams as a starting point to review and change, not as a verified or comp
 
 ## How to read this page
 
-- **Name** is the diagram name exactly as it appears in Capella.
+- **Name** is the diagram name exactly as it appears in Eclipse Capella®.
 - **Type** is the Sirius diagram type.
 - **Diagram elements** is the number of diagram elements the model reports for the view. The 12 views hold 435 in
   total. It is not a count of model elements. It counts the boxes and lines placed directly on the diagram, not
@@ -24,7 +24,7 @@ the diagrams as a starting point to review and change, not as a verified or comp
 
 The PNG files in [`diagrams/`](diagrams) show the layout introduced in v1.2.0.
 Each diagram was laid out with the ELK-based auto-layout of the
-[Capella Agent Toolkit](https://github.com/sidkolapalli/capella-agent-toolkit) plug-in
+[Agent Toolkit for Capella](https://github.com/sidkolapalli/agent-toolkit-for-capella) plug-in
 (`api.diagram.layout(diagram, 'auto')`). The layout is not a stock Capella feature. Only the `.aird` file changed;
 the semantic `.capella` file is byte-identical to v1.1.0.
 [`../acceptance/34-layout-persisted-diagrams.groovy`](../acceptance/34-layout-persisted-diagrams.groovy) applied the
